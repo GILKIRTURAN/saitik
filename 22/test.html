@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Су-34 — Полный информационный портал ВКС России</title>
+<meta name="description" content="Подробный портал о фронтовом бомбардировщике Су-34: история, ТТХ, вооружение, пилоты, боевые вылеты, галерея и видео.">
+
+<!-- SimpleBar CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.css">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0d1117;--bg-alt:#161b22;--bg-soft:#1a2332;--bg-hover:#1f2937;
+  --border:#30363d;--border-soft:#21262d;
+  --text:#e6edf3;--text-dim:#c9d1d9;--muted:#8b949e;
+  --accent:#60a5fa;--accent-2:#3b82f6;--accent-3:#818cf8;
+  --accent-warm:#f59e0b;--danger:#ef4444;--success:#22c55e;
+  --star-active:#fbbf24;
+  --header-1:rgba(26,35,50,.55);--header-2:rgba(13,17,23,.75);
+  --radius-sm:6px;--radius:10px;--radius-lg:16px;
+  --shadow:0 10px 30px rgba(0,0,0,.5);
+  --shadow-accent:0 5px 15px rgba(59,130,246,.3);
+  --transition:.3s cubic-bezier(.4,0,.2,1);
+  --font:'Arial','Helvetica Neue',sans-serif;
+}
+html[data-theme="light"]{
+  --bg:#eef3fa;--bg-alt:#ffffff;--bg-soft:#e3ebf5;--bg-hover:#d8e2ee;
+  --border:#cdd6e1;--border-soft:#e2e8f0;
+  --text:#1f2328;--text-dim:#3d444d;--muted:#5a6472;
+  --accent:#0969da;--accent-2:#218bff;--accent-3:#6e40c9;
+  --accent-warm:#d97706;--danger:#cf222e;--success:#1a7f37;
+  --header-1:rgba(255,255,255,.65);--header-2:rgba(230,240,250,.85);
+  --shadow:0 10px 30px rgba(31,35,40,.15);
+  --shadow-accent:0 5px 15px rgba(33,139,255,.3);
+}
+html,body{height:100%}
+html{background:var(--bg);transition:background .5s ease;scroll-behavior:smooth;scroll-padding-top:200px}
+body{font-family:var(--font);background:transparent;color:var(--text);line-height:1.65;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:color .3s ease}
+img{max-width:100%;display:block}
+a{color:inherit}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:6px;border:2px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-2)}
+::selection{background:var(--accent-2);color:#fff}
+
+/* ====== АНИМИРОВАННЫЙ ФОН ====== */
+.sky-bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;transition:opacity .5s ease}
+.sky-layer{position:absolute;inset:-15%;opacity:0;transition:opacity .8s ease;will-change:transform,background-position}
+html[data-theme="dark"] .sky-night-base{opacity:1}
+html[data-theme="dark"] .sky-stars-1{opacity:1;animation:driftStars1 240s linear infinite}
+html[data-theme="dark"] .sky-stars-2{opacity:.85;animation:driftStars2 400s linear infinite}
+html[data-theme="dark"] .sky-stars-3{opacity:.6;animation:driftStars3 600s linear infinite}
+html[data-theme="dark"] .sky-nebula-1{opacity:1;animation:nebulaPulse 40s ease-in-out infinite alternate}
+html[data-theme="dark"] .sky-nebula-2{opacity:.8;animation:nebulaPulse2 55s ease-in-out infinite alternate}
+html[data-theme="dark"] .sky-shooting{opacity:1}
+.sky-night-base{background:radial-gradient(ellipse at 50% 100%, #0a1428 0%, #050a18 40%, #02030a 100%),linear-gradient(180deg, #04070f 0%, #08111f 60%, #0a1428 100%)}
+.sky-stars-1{background-image:radial-gradient(1.5px 1.5px at 12% 18%, #fff, transparent 60%),radial-gradient(1px 1px at 25% 42%, #fff, transparent 60%),radial-gradient(2px 2px at 38% 12%, #cfe2ff, transparent 60%),radial-gradient(1px 1px at 47% 68%, #fff, transparent 60%),radial-gradient(1.5px 1.5px at 62% 25%, #fff, transparent 60%),radial-gradient(1px 1px at 73% 55%, #dbeeff, transparent 60%),radial-gradient(2px 2px at 85% 32%, #fff, transparent 60%),radial-gradient(1px 1px at 92% 78%, #fff, transparent 60%),radial-gradient(1.5px 1.5px at 8% 82%, #fff, transparent 60%),radial-gradient(1px 1px at 55% 92%, #cfe2ff, transparent 60%),radial-gradient(1px 1px at 18% 65%, #fff, transparent 60%),radial-gradient(2px 2px at 78% 12%, #fff, transparent 60%);background-size:600px 600px}
+.sky-stars-2{background-image:radial-gradient(1px 1px at 30% 22%, #a7c8ff, transparent 60%),radial-gradient(1px 1px at 55% 45%, #fff, transparent 60%),radial-gradient(1px 1px at 70% 82%, #fff, transparent 60%),radial-gradient(1px 1px at 15% 55%, #cfe2ff, transparent 60%),radial-gradient(1px 1px at 88% 18%, #fff, transparent 60%),radial-gradient(1px 1px at 42% 78%, #fff, transparent 60%),radial-gradient(1px 1px at 5% 32%, #fff, transparent 60%),radial-gradient(1px 1px at 62% 8%, #dbeeff, transparent 60%);background-size:900px 900px}
+.sky-stars-3{background-image:radial-gradient(1px 1px at 22% 88%, #fff, transparent 60%),radial-gradient(1px 1px at 44% 12%, #fff, transparent 60%),radial-gradient(1px 1px at 66% 62%, #cfe2ff, transparent 60%),radial-gradient(1px 1px at 92% 42%, #fff, transparent 60%);background-size:1200px 1200px}
+.sky-nebula-1{background:radial-gradient(ellipse 40% 30% at 22% 35%, rgba(80,120,255,.18), transparent 65%),radial-gradient(ellipse 35% 25% at 78% 65%, rgba(160,80,255,.14), transparent 65%);filter:blur(20px)}
+.sky-nebula-2{background:radial-gradient(ellipse 30% 20% at 60% 20%, rgba(96,165,250,.12), transparent 70%),radial-gradient(ellipse 25% 30% at 30% 75%, rgba(129,140,248,.10), transparent 70%);filter:blur(30px)}
+.sky-shooting::before,.sky-shooting::after{content:'';position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px rgba(255,255,255,.8),0 0 20px 3px rgba(160,200,255,.4);opacity:0}
+.sky-shooting::before{top:12%;left:8%;animation:shooting1 18s linear infinite}
+.sky-shooting::after{top:32%;left:55%;animation:shooting2 27s linear infinite;animation-delay:9s}
+@keyframes driftStars1{from{transform:translate(0,0)}to{transform:translate(-300px,150px)}}
+@keyframes driftStars2{from{transform:translate(0,0)}to{transform:translate(200px,-100px)}}
+@keyframes driftStars3{from{transform:translate(0,0)}to{transform:translate(-150px,220px)}}
+@keyframes nebulaPulse{0%{transform:scale(1) translate(0,0);opacity:.9}100%{transform:scale(1.08) translate(20px,-15px);opacity:1}}
+@keyframes nebulaPulse2{0%{transform:scale(1.05) translate(0,0);opacity:.7}100%{transform:scale(1) translate(-25px,20px);opacity:.95}}
+@keyframes shooting1{0%,92%{opacity:0;transform:translate(0,0) rotate(35deg)}93%{opacity:1}94%{opacity:0;transform:translate(320px,224px) rotate(35deg)}100%{opacity:0;transform:translate(320px,224px) rotate(35deg)}}
+@keyframes shooting2{0%,88%{opacity:0;transform:translate(0,0) rotate(40deg)}89%{opacity:1}90%{opacity:0;transform:translate(400px,336px) rotate(40deg)}100%{opacity:0;transform:translate(400px,336px) rotate(40deg)}}
+html[data-theme="light"] .sky-day-base{opacity:1}
+html[data-theme="light"] .sky-clouds-1{opacity:1;animation:cloudDrift1 130s linear infinite}
+html[data-theme="light"] .sky-clouds-2{opacity:.85;animation:cloudDrift2 200s linear infinite}
+html[data-theme="light"] .sky-clouds-3{opacity:.6;animation:cloudDrift3 300s linear infinite}
+.sky-day-base{background:linear-gradient(180deg,#a8d4f5 0%,#c7e2f7 35%,#e0edf8 70%,#eef3fa 100%)}
+.sky-clouds-1{background-image:radial-gradient(ellipse 220px 60px at 10% 20%, rgba(255,255,255,.95), transparent 70%),radial-gradient(ellipse 300px 80px at 45% 12%, rgba(255,255,255,.9), transparent 70%),radial-gradient(ellipse 260px 70px at 78% 28%, rgba(255,255,255,.85), transparent 70%),radial-gradient(ellipse 200px 55px at 25% 55%, rgba(255,255,255,.8), transparent 70%),radial-gradient(ellipse 320px 85px at 65% 62%, rgba(255,255,255,.75), transparent 70%);background-size:1400px 900px;filter:blur(3px)}
+.sky-clouds-2{background-image:radial-gradient(ellipse 280px 75px at 15% 35%, rgba(255,255,255,.85), transparent 70%),radial-gradient(ellipse 380px 95px at 60% 45%, rgba(255,255,255,.8), transparent 70%),radial-gradient(ellipse 240px 65px at 85% 15%, rgba(255,255,255,.75), transparent 70%),radial-gradient(ellipse 300px 80px at 5% 75%, rgba(255,255,255,.7), transparent 70%);background-size:1800px 1100px;filter:blur(5px)}
+.sky-clouds-3{background-image:radial-gradient(ellipse 400px 100px at 30% 25%, rgba(255,255,255,.6), transparent 70%),radial-gradient(ellipse 500px 120px at 75% 70%, rgba(255,255,255,.55), transparent 70%);background-size:2400px 1400px;filter:blur(8px)}
+@keyframes cloudDrift1{from{transform:translateX(-4%)}to{transform:translateX(4%)}}
+@keyframes cloudDrift2{from{transform:translateX(3%)}to{transform:translateX(-5%)}}
+@keyframes cloudDrift3{from{transform:translateX(-2%) translateY(0)}to{transform:translateX(2%) translateY(-3%)}}
+html[data-theme="custom"] .sky-custom-layer{opacity:1}
+.sky-custom-layer{background-color:var(--bg);background-image:var(--custom-bg-image,none);background-size:cover;background-position:center;background-attachment:fixed;background-repeat:no-repeat}
+
+/* ====== ПЕРЕКЛЮЧАТЕЛЬ ТЕМ ====== */
+.theme-switcher{position:absolute;top:14px;right:18px;z-index:5;display:flex;gap:6px;background:var(--bg-alt);border:1px solid var(--border);border-radius:22px;padding:4px;box-shadow:var(--shadow)}
+.theme-switcher button{width:32px;height:32px;border-radius:50%;border:none;background:transparent;color:var(--text-dim);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:var(--transition);font-family:inherit;padding:0}
+.theme-switcher button:hover{background:var(--bg-hover);transform:scale(1.08)}
+.theme-switcher button.active{background:var(--accent-2);color:#fff;box-shadow:var(--shadow-accent)}
+@media(max-width:768px){.theme-switcher{position:relative;top:0;right:0;margin:6px auto 0;justify-content:center;width:max-content}}
+
+/* ====== МОДАЛКА КАСТОМНОЙ ТЕМЫ ====== */
+.theme-modal{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.theme-modal.visible{display:flex;animation:fadeIn .3s}
+.theme-modal-content{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px 24px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.7);color:var(--text)}
+.theme-modal-content h3{color:var(--accent);margin-bottom:18px;font-size:1.2rem;border-bottom:1px solid var(--border);padding-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.tm-close{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;padding:0 4px;line-height:1;transition:color .2s}
+.tm-close:hover{color:var(--danger)}
+.tm-section{margin-bottom:20px}
+.tm-section>label{display:block;color:var(--accent);font-size:.85rem;font-weight:bold;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.tm-upload{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tm-upload input[type=file]{flex:1;min-width:180px;color:var(--text-dim);font-size:.82rem;background:var(--bg-soft);border:1px dashed var(--border);border-radius:8px;padding:10px 12px;cursor:pointer}
+.tm-upload input[type=file]::file-selector-button{background:var(--accent-2);color:#fff;border:none;padding:5px 12px;border-radius:6px;cursor:pointer;font-weight:bold;margin-right:10px;font-family:inherit;transition:background .2s}
+.tm-upload input[type=file]::file-selector-button:hover{background:var(--accent)}
+.tm-btn{background:var(--bg-soft);border:1px solid var(--border);color:var(--text-dim);padding:8px 14px;border-radius:8px;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:bold;transition:var(--transition)}
+.tm-btn:hover{border-color:var(--accent);color:#fff;background:var(--bg-hover)}
+.tm-btn.primary{background:var(--accent-2);border-color:var(--accent-2);color:#fff}
+.tm-btn.primary:hover{background:var(--accent)}
+.palette-presets{display:flex;gap:8px;flex-wrap:wrap}
+.palette-presets button{width:52px;height:52px;border-radius:10px;border:2px solid var(--border);cursor:pointer;padding:0;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+.palette-presets button:hover{transform:scale(1.08);border-color:var(--accent)}
+.palette-presets button.active{border-color:var(--accent);box-shadow:0 0 0 3px rgba(96,165,250,.3)}
+.palette-presets button::after{content:attr(data-label);position:absolute;bottom:2px;left:0;right:0;font-size:.55rem;color:#fff;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,.9);font-weight:bold}
+.color-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.color-row label{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--text-dim);background:var(--bg-soft);padding:8px 12px;border-radius:8px;border:1px solid var(--border);cursor:pointer}
+.color-row label span{flex:1}
+.color-row input[type=color]{width:32px;height:32px;border:1px solid var(--border);border-radius:6px;cursor:pointer;background:transparent;padding:0}
+.color-row input[type=color]::-webkit-color-swatch-wrapper{padding:0}
+.color-row input[type=color]::-webkit-color-swatch{border:none;border-radius:4px}
+.tm-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;padding-top:16px;border-top:1px solid var(--border)}
+@media(max-width:520px){.color-row{grid-template-columns:1fr}.theme-modal-content{padding:20px 16px}}
+
+/* ====== ХЕДЕР ====== */
+header{background:linear-gradient(135deg,var(--header-1),var(--header-2));padding:15px 20px 12px;border-bottom:3px solid var(--accent-2);position:sticky;top:0;z-index:100;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .5s ease,border-color .5s ease}
+header h1{font-size:1.55rem;color:var(--accent);text-align:center;margin-bottom:10px;position:relative;z-index:1;letter-spacing:.3px;text-shadow:0 2px 12px rgba(0,0,0,.4);transition:color .5s}
+html[data-theme="light"] header h1{text-shadow:0 2px 12px rgba(255,255,255,.6)}
+header .site-subtitle{text-align:center;color:var(--muted);font-size:.82rem;margin-bottom:12px;position:relative;z-index:1}
+.page-nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:10px;position:relative;z-index:1}
+.page-nav button{background:var(--bg-alt);border:1px solid var(--border);color:var(--text-dim);padding:8px 18px;border-radius:25px;cursor:pointer;font-weight:bold;font-size:.88rem;transition:var(--transition);font-family:inherit;display:inline-flex;align-items:center;gap:7px}
+.page-nav button:hover{border-color:var(--accent);color:var(--text);transform:translateY(-1px)}
+.page-nav button.active{background:linear-gradient(135deg,var(--accent-2),var(--accent-3));color:#fff;border-color:transparent;box-shadow:var(--shadow-accent)}
+.page-nav button .nav-ico{font-size:1rem}
+nav.anchor-nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;position:relative;z-index:1}
+nav.anchor-nav a{color:var(--text-dim);text-decoration:none;padding:5px 12px;border-radius:var(--radius-sm);transition:var(--transition);font-weight:bold;font-size:.82rem;border:1px solid transparent}
+nav.anchor-nav a:hover{background:var(--accent-2);color:#fff;border-color:var(--accent-2)}
+.search-wrap{max-width:560px;margin:0 auto;position:relative;z-index:1}
+#search{width:100%;padding:11px 42px;background:var(--bg-alt);border:1px solid var(--border);border-radius:25px;color:var(--text);font-size:.95rem;outline:none;transition:border-color .2s,box-shadow .2s,background .3s;font-family:inherit}
+#search:focus{border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(59,130,246,.18)}
+#search::placeholder{color:var(--muted)}
+.search-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:.95rem}
+.search-hint{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.7rem;border:1px solid var(--border);border-radius:5px;padding:1px 6px;pointer-events:none;background:var(--bg)}
+.search-results{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;max-height:420px;overflow-y:auto;display:none;box-shadow:var(--shadow);z-index:200;overscroll-behavior:contain}
+.search-results.visible{display:block}
+.search-item{padding:12px 16px;border-bottom:1px solid var(--border-soft);cursor:pointer;transition:background .15s}
+.search-item:last-child{border-bottom:none}
+.search-item:hover{background:var(--bg-hover)}
+.search-item .s-title{color:var(--accent);font-weight:bold;font-size:.93rem}
+.search-item .s-desc{color:var(--muted);font-size:.78rem;margin-top:2px}
+.search-item .s-tag{display:inline-block;background:var(--bg-hover);color:var(--accent);font-size:.68rem;padding:1px 8px;border-radius:10px;margin-left:6px}
+.no-results{padding:20px;text-align:center;color:var(--muted);font-size:.9rem}
+
+/* ====== ОБЩЕЕ ====== */
+.container{max-width:1240px;margin:0 auto;padding:30px 20px 60px;position:relative;z-index:1}
+.page{display:none;animation:pageFade .45s ease}
+.page.active{display:block}
+@keyframes pageFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+section{margin-bottom:65px;scroll-margin-top:200px}
+h2{font-size:1.55rem;color:var(--accent);margin-bottom:22px;border-bottom:2px solid var(--accent-2);padding-bottom:10px;display:flex;align-items:center;gap:10px;transition:color .5s,border-color .5s}
+h2 .h2-ico{font-size:1.4rem}
+h3{color:var(--accent);transition:color .5s}
+.lead{color:var(--text-dim);font-size:1rem;margin-bottom:18px;max-width:900px}
+.muted{color:var(--muted)}
+.small{font-size:.85rem}
+.center{text-align:center}
+
+/* ====== СТРАНИЦА 1 ====== */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+.info-text{background:var(--bg-alt);padding:22px;border-radius:var(--radius);border:1px solid var(--border);transition:background .5s,border-color .5s}
+.info-text p{margin-bottom:10px;color:var(--text-dim)}
+.info-text strong{color:var(--accent)}
+.model-container{background:var(--bg-alt);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);min-height:400px}
+.model-container iframe{width:100%;height:440px;border:none;display:block}
+.specs-table{width:100%;border-collapse:collapse;background:var(--bg-alt);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border)}
+.specs-table caption{text-align:left;padding:14px 18px;color:var(--accent);font-weight:bold;background:var(--bg-soft);border-bottom:1px solid var(--border);font-size:1.05rem}
+.specs-table td{padding:11px 18px;border-bottom:1px solid var(--border-soft);font-size:.92rem;color:var(--text-dim)}
+.specs-table tr:last-child td{border-bottom:none}
+.specs-table td:first-child{color:var(--accent);font-weight:bold;width:42%;background:rgba(59,130,246,.04)}
+.specs-table tr:hover td{background:rgba(59,130,246,.07)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.feature-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:var(--transition)}
+.feature-card:hover{border-color:var(--accent-2);transform:translateY(-4px);box-shadow:var(--shadow-accent)}
+.feature-card .fc-icon{font-size:2rem;margin-bottom:10px;display:block}
+.feature-card h3{color:var(--accent);font-size:1.05rem;margin-bottom:8px}
+.feature-card p{color:var(--muted);font-size:.88rem}
+.timeline{position:relative;padding-left:30px}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent-3))}
+.timeline-item{position:relative;margin-bottom:22px;background:var(--bg-alt);padding:16px 20px;border-radius:var(--radius);border:1px solid var(--border);transition:var(--transition)}
+.timeline-item:hover{border-color:var(--accent-2)}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:22px;width:14px;height:14px;background:var(--accent);border-radius:50%;border:3px solid var(--bg);box-shadow:0 0 0 2px var(--accent-2)}
+.timeline-item .year{color:var(--accent);font-weight:bold;font-size:1.1rem;margin-bottom:4px}
+.timeline-item p{color:var(--text-dim);font-size:.92rem}
+.mod-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:18px;transition:var(--transition)}
+.mod-card:hover{border-color:var(--accent-2);transform:translateX(4px)}
+.mod-card:last-child{margin-bottom:0}
+.mod-card h3{color:var(--accent);margin-bottom:10px;font-size:1.15rem}
+.mod-card p{color:var(--text-dim);font-size:.92rem}
+.mod-card .mod-tag{display:inline-block;background:rgba(59,130,246,.12);color:var(--accent);border:1px solid rgba(59,130,246,.3);padding:2px 10px;border-radius:12px;font-size:.72rem;margin-left:8px;vertical-align:middle}
+
+/* ====== SIMPLEBAR SCROLL BOX ====== */
+.scroll-box{
+  position:relative;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+  transition:border-color .3s ease;
+}
+.scroll-box:hover{border-color:var(--accent-2)}
+.scroll-box-history{height:500px}
+.scroll-box-mods{height:420px}
+
+/* Затемнение снизу — подсказка, что есть прокрутка */
+.scroll-box::after{
+  content:'▼ Прокрутите вниз';
+  position:sticky;
+  bottom:-20px;
+  display:block;
+  text-align:center;
+  font-size:.72rem;
+  color:var(--muted);
+  background:linear-gradient(to top, var(--bg) 30%, transparent);
+  padding:24px 0 4px;
+  margin:0 -20px -20px;
+  border-radius:0 0 var(--radius) var(--radius);
+  pointer-events:none;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+}
+
+/* SimpleBar: кастомизация в стиле темы */
+[data-simplebar] { position:relative; }
+.simplebar-track.simplebar-vertical{
+  width:12px;
+  right:2px;
+  top:8px;
+  bottom:8px;
+  background:transparent;
+  border-radius:6px;
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar{
+  right:3px;
+  width:6px;
+  min-height:30px;
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar::before{
+  content:'';
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  background:var(--accent);
+  border-radius:6px;
+  opacity:.45;
+  transition:opacity .2s ease, background .2s ease;
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar.simplebar-visible::before{
+  opacity:.85;
+}
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:hover::before{
+  opacity:1;
+  background:var(--accent-2);
+}
+.simplebar-track.simplebar-horizontal{display:none}
+.simplebar-content-wrapper:focus{outline:none}
+
+/* ====== ФИЛЬТР ВООРУЖЕНИЯ ====== */
+.weapon-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+  padding: 15px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  font-size: .85rem;
+  color: var(--text-dim);
+  user-select: none;
+}
+.filter-label:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.filter-label input[type="checkbox"] {
+  display: none;
+}
+.filter-box {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--muted);
+  border-radius: 4px;
+  position: relative;
+  transition: var(--transition);
+  flex-shrink: 0;
+  background: var(--bg);
+}
+.filter-box::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform .2s ease;
+  border-radius: 1px;
+}
+.filter-label input:checked + .filter-box {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+}
+.filter-label input:checked + .filter-box::after {
+  transform: rotate(45deg) scale(1);
+}
+.filter-label input:checked ~ .filter-text {
+  color: var(--accent);
+  font-weight: bold;
+}
+.filter-label:has(input:checked) {
+  border-color: var(--accent-2);
+  background: rgba(59,130,246,.1);
+}
+
+/* ====== ВООРУЖЕНИЕ ====== */
+.weapon-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:15px}
+.weapon-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:12px;cursor:pointer;transition:var(--transition);overflow:hidden}
+.weapon-card:hover{border-color:var(--accent-2);transform:translateY(-3px);box-shadow:var(--shadow-accent)}
+.weapon-card.active{border-color:var(--accent);background:var(--bg-soft)}
+.weapon-thumb{width:100%;height:130px;object-fit:cover;border-radius:var(--radius-sm);margin-bottom:10px;background:linear-gradient(135deg,var(--bg-hover),var(--bg));display:block}
+.weapon-card h3{color:var(--accent);margin-bottom:4px;font-size:1rem}
+.weapon-card p{font-size:.82rem;color:var(--muted)}
+#weapon-detail{display:none;margin-top:30px;background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
+#weapon-detail.visible{display:block;animation:fadeIn .35s}
+.weapon-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.weapon-detail-info h3{color:var(--accent);margin-bottom:15px;font-size:1.4rem}
+.weapon-detail-info ul{list-style:none;padding:0}
+.weapon-detail-info li{padding:8px 0;border-bottom:1px solid var(--border-soft);color:var(--text-dim);font-size:.93rem}
+.weapon-detail-info li strong{color:var(--accent);display:inline-block;min-width:160px}
+.weapon-photo-wrap{background:var(--bg);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:340px}
+.weapon-photo{width:100%;height:100%;max-height:460px;object-fit:contain;display:block}
+.photo-placeholder{width:100%;min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--accent);background:linear-gradient(135deg,var(--bg-soft),var(--bg));font-size:1.05rem;gap:10px;padding:20px;text-align:center}
+.photo-placeholder .ph-icon{font-size:3rem}
+.weapon-category{margin-bottom:32px}
+.weapon-category h3{color:var(--accent-3);font-size:1.15rem;margin-bottom:15px;padding-left:12px;border-left:4px solid var(--accent-3)}
+
+/* ====== ГАЛЕРЕЯ И РЕЙТИНГ ====== */
+.gallery-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px; }
+.add-photo-btn { display:inline-flex; align-items:center; gap:8px; background:var(--accent-2); color:#fff; border:none; padding:10px 20px; border-radius:25px; font-weight:bold; cursor:pointer; transition:var(--transition); font-family:inherit; font-size:.9rem; }
+.add-photo-btn:hover { background:var(--accent); transform:translateY(-2px); box-shadow:var(--shadow-accent); }
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.gallery-item {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+}
+.gallery-item:hover {
+  border-color: var(--accent-2);
+  box-shadow: var(--shadow-accent);
+  transform: translateY(-3px);
+}
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+  cursor: zoom-in;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+
+.gallery-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--bg-alt);
+}
+.gallery-title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.gallery-title {
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: bold;
+  line-height: 1.4;
+  flex: 1;
+}
+.delete-photo-btn { background:none; border:none; color:var(--muted); cursor:pointer; font-size:1.1rem; padding:0; transition:color .2s; line-height:1; }
+.delete-photo-btn:hover { color:var(--danger); }
+
+.gallery-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-soft);
+  padding-top: 12px;
+}
+.stars {
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+}
+.star {
+  font-size: 1.15rem;
+  color: var(--muted);
+  transition: color 0.2s;
+  user-select: none;
+}
+.star.active, .star.hover {
+  color: var(--star-active);
+}
+.like-dislike {
+  display: flex;
+  gap: 8px;
+}
+.like-btn, .dislike-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 4px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  transition: var(--transition);
+}
+.like-btn:hover { border-color: var(--success); color: var(--success); }
+.dislike-btn:hover { border-color: var(--danger); color: var(--danger); }
+.like-btn.active { background: rgba(34,197,94,.15); border-color: var(--success); color: var(--success); }
+.dislike-btn.active { background: rgba(239,68,68,.15); border-color: var(--danger); color: var(--danger); }
+.like-btn .count, .dislike-btn .count { font-weight: bold; }
+
+/* ====== ЛАЙТБОКС (ПОЛНЫЙ ЭКРАН) ====== */
+.lightbox {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,.92);
+  display: none; align-items: center; justify-content: center;
+  padding: 20px; backdrop-filter: blur(5px);
+  cursor: zoom-out;
+}
+.lightbox.visible { display: flex; animation: fadeIn .3s ease; }
+.lightbox img {
+  max-width: 95%; max-height: 90vh;
+  object-fit: contain; border-radius: var(--radius);
+  box-shadow: 0 10px 40px rgba(0,0,0,.8);
+  cursor: default;
+}
+.lightbox-close {
+  position: absolute; top: 20px; right: 30px;
+  color: #fff; font-size: 2.5rem; cursor: pointer;
+  transition: transform .2s; line-height: 1; z-index: 10;
+}
+.lightbox-close:hover { transform: scale(1.1); color: var(--danger); }
+
+/* ====== МОДАЛКА ЗАГРУЗКИ ====== */
+.upload-modal { position:fixed; inset:0; background:rgba(0,0,0,.75); z-index:500; display:none; align-items:center; justify-content:center; padding:20px; backdrop-filter:blur(4px); }
+.upload-modal.visible { display:flex; animation:fadeIn .3s; }
+.upload-content { background:var(--bg-alt); border:1px solid var(--border); border-radius:var(--radius-lg); padding:26px 24px; max-width:420px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,.7); color:var(--text); }
+.upload-content h3 { color:var(--accent); margin-bottom:18px; font-size:1.2rem; border-bottom:1px solid var(--border); padding-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
+.upload-content label { display:block; font-size:.85rem; color:var(--text-dim); margin-bottom:6px; }
+.upload-content input[type="text"] { width:100%; padding:10px 12px; background:var(--bg-soft); border:1px solid var(--border); border-radius:8px; color:var(--text); font-family:inherit; margin-bottom:16px; outline:none; transition:border-color .2s; }
+.upload-content input[type="text"]:focus { border-color:var(--accent); }
+.upload-content input[type="file"] { width:100%; padding:8px 12px; background:var(--bg-soft); border:1px dashed var(--border); border-radius:8px; color:var(--text-dim); font-size:.8rem; cursor:pointer; margin-bottom:20px; }
+.upload-content input[type="file"]::file-selector-button { background:var(--accent-2); color:#fff; border:none; padding:4px 10px; border-radius:6px; cursor:pointer; font-weight:bold; margin-right:10px; font-family:inherit; transition:background .2s; }
+.upload-content input[type="file"]::file-selector-button:hover { background:var(--accent); }
+
+/* ====== СТРАНИЦА 2 ====== */
+.pilots-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.pilot-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:var(--transition);cursor:pointer}
+.pilot-card:hover{border-color:var(--accent-2);transform:translateY(-4px);box-shadow:var(--shadow-accent)}
+.pilot-card .pilot-photo{width:100%;height:260px;object-fit:cover;background:linear-gradient(135deg,var(--bg-soft),var(--bg))}
+.pilot-card .pilot-body{padding:16px}
+.pilot-card h3{color:var(--accent);font-size:1.05rem;margin-bottom:4px}
+.pilot-card .pilot-rank{color:var(--accent-warm);font-size:.78rem;font-weight:bold;margin-bottom:8px}
+.pilot-card .pilot-desc{color:var(--muted);font-size:.85rem;line-height:1.5}
+.pilot-card .pilot-badge{display:inline-block;background:rgba(34,197,94,.12);color:var(--success);border:1px solid rgba(34,197,94,.3);padding:1px 8px;border-radius:10px;font-size:.68rem;margin-top:8px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-bottom:30px}
+.stat-card{background:linear-gradient(135deg,var(--bg-alt),var(--bg));border:1px solid var(--border);border-radius:var(--radius);padding:22px 18px;text-align:center;transition:var(--transition)}
+.stat-card:hover{border-color:var(--accent-2);transform:translateY(-3px)}
+.stat-card .stat-value{font-size:2rem;font-weight:bold;color:var(--accent);line-height:1.1}
+.stat-card .stat-label{color:var(--muted);font-size:.82rem;margin-top:6px}
+.sorties-table{width:100%;border-collapse:collapse;background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;font-size:.88rem}
+.sorties-table th,.sorties-table td{padding:10px 14px;border-bottom:1px solid var(--border-soft);text-align:left;color:var(--text-dim)}
+.sorties-table th{background:var(--bg-soft);color:var(--accent);font-weight:bold}
+.sorties-table tr:hover td{background:rgba(59,130,246,.07)}
+.sorties-table td:first-child{color:var(--accent);font-weight:bold}
+.sorties-table .td-target{color:var(--accent-warm)}
+.target-bars{margin-top:20px}
+.target-bar{margin-bottom:16px}
+.target-bar .tb-head{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:6px;color:var(--text-dim)}
+.target-bar .tb-head strong{color:var(--accent)}
+.target-bar .tb-track{height:10px;background:var(--bg);border-radius:6px;overflow:hidden;border:1px solid var(--border)}
+.target-bar .tb-fill{height:100%;background:linear-gradient(90deg,var(--accent-2),var(--accent));border-radius:6px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.campaign-card{background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--accent-warm);border-radius:var(--radius);padding:18px 22px;margin-bottom:18px;transition:var(--transition)}
+.campaign-card:hover{transform:translateX(4px);border-left-color:var(--accent)}
+.campaign-card h3{color:var(--accent);margin-bottom:8px;font-size:1.1rem}
+.campaign-card .camp-meta{color:var(--accent-warm);font-size:.78rem;font-weight:bold;margin-bottom:10px}
+.campaign-card p{color:var(--text-dim);font-size:.9rem}
+.losses-list{list-style:none;padding:0}
+.losses-list li{background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--danger);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:10px;color:var(--text-dim);font-size:.9rem}
+.losses-list li strong{color:var(--danger)}
+.awards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.award-card{background:linear-gradient(135deg,var(--bg-soft),var(--bg));border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:var(--transition)}
+.award-card:hover{border-color:var(--accent-warm);transform:translateY(-3px)}
+.award-card .award-icon{font-size:2.2rem;margin-bottom:8px}
+.award-card h3{color:var(--accent-warm);font-size:.98rem;margin-bottom:6px}
+.award-card p{color:var(--muted);font-size:.8rem}
+
+/* ====== СТРАНИЦА 3 ====== */
+.video-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:25px;justify-content:center}
+.video-filters button{background:var(--bg-alt);border:1px solid var(--border);color:var(--text-dim);padding:7px 16px;border-radius:20px;cursor:pointer;font-size:.82rem;transition:var(--transition);font-family:inherit;font-weight:bold}
+.video-filters button:hover{border-color:var(--accent);color:var(--text)}
+.video-filters button.active{background:var(--accent-2);border-color:var(--accent-2);color:#fff}
+.video-slider{position:relative;padding:0 54px;margin-bottom:10px}
+.video-slider-viewport{overflow:hidden;border-radius:var(--radius)}
+.video-slider-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform}
+.video-slide{flex:0 0 100%;min-width:0;display:grid;gap:22px;padding:4px;align-items:stretch}
+.slider-btn{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:var(--accent-2);color:#fff;border:none;font-size:1.7rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);z-index:10;transition:background .2s,transform .2s,opacity .2s;font-family:inherit;padding:0 0 4px 0}
+.slider-btn:hover:not(:disabled){background:var(--accent);transform:translateY(-50%) scale(1.1)}
+.slider-btn:disabled{opacity:.25;cursor:not-allowed}
+.slider-btn.prev{left:0}
+.slider-btn.next{right:0}
+.slider-dots{display:flex;justify-content:center;gap:8px;margin-top:22px;flex-wrap:wrap}
+.slider-dot{width:10px;height:10px;border-radius:6px;background:var(--border);border:none;cursor:pointer;transition:var(--transition);padding:0}
+.slider-dot:hover{background:var(--accent-3)}
+.slider-dot.active{background:var(--accent);width:28px;box-shadow:0 0 0 3px rgba(96,165,250,.25)}
+.slider-counter{text-align:center;color:var(--muted);font-size:.85rem;margin-top:12px}
+.slider-counter strong{color:var(--accent);font-size:1rem}
+.video-empty{text-align:center;padding:60px 20px;color:var(--muted);background:var(--bg-alt);border:1px dashed var(--border);border-radius:var(--radius);font-size:1rem}
+.video-empty .ve-ico{font-size:3rem;display:block;margin-bottom:12px;color:var(--accent)}
+.video-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:var(--transition);height:100%;display:flex;flex-direction:column}
+.video-card:hover{border-color:var(--accent-2);transform:translateY(-4px);box-shadow:var(--shadow-accent)}
+.video-card .video-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;flex-shrink:0}
+.video-card .video-frame iframe{width:100%;height:100%;border:none;display:block}
+.video-card .video-body{padding:14px 16px;display:flex;flex-direction:column;flex-grow:1}
+.video-card h3{color:var(--accent);font-size:.98rem;margin-bottom:6px;line-height:1.4}
+.video-card .video-meta{color:var(--muted);font-size:.76rem;margin-bottom:8px}
+.video-card .video-desc{color:var(--text-dim);font-size:.84rem;line-height:1.5}
+.video-card .video-tag{display:inline-block;background:rgba(129,140,248,.12);color:var(--accent-3);border:1px solid rgba(129,140,248,.3);padding:1px 8px;border-radius:10px;font-size:.68rem;margin-right:6px}
+.video-note{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.3);border-left:4px solid var(--accent-warm);border-radius:var(--radius-sm);padding:14px 18px;color:var(--text-dim);font-size:.88rem;margin-bottom:25px}
+.video-note strong{color:var(--accent-warm)}
+.video-note code{background:rgba(0,0,0,.25);padding:1px 6px;border-radius:4px;color:var(--accent);font-family:'Consolas',monospace;font-size:.85em}
+.channels-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.channel-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:18px;transition:var(--transition);text-decoration:none;color:inherit;display:block}
+.channel-card:hover{border-color:#ff0000;transform:translateY(-3px)}
+.channel-card .ch-ico{font-size:1.8rem;margin-bottom:8px}
+.channel-card h3{color:var(--accent);font-size:.98rem;margin-bottom:6px}
+.channel-card p{color:var(--muted);font-size:.82rem}
+
+/* ====== ФУТЕР ====== */
+footer{text-align:center;padding:40px 20px 30px;background:var(--header-2);border-top:1px solid var(--border);color:var(--muted);font-size:.88rem;position:relative;z-index:1;backdrop-filter:blur(10px)}
+footer .footer-nav{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:20px}
+footer .footer-nav a{color:var(--text-dim);text-decoration:none;font-size:.84rem;transition:color .2s}
+footer .footer-nav a:hover{color:var(--accent)}
+.social-links{display:flex;justify-content:center;gap:14px;margin:18px 0;flex-wrap:wrap}
+.social-link{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:22px;text-decoration:none;color:var(--text-dim);border:1px solid var(--border);background:var(--bg-alt);font-size:.82rem;font-weight:bold;transition:var(--transition)}
+.social-link:hover{transform:translateY(-2px);color:#fff}
+.social-link.vk:hover{background:#07f;border-color:#07f}
+.social-link.tg:hover{background:#08c;border-color:#08c}
+.social-link.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:#dc2743}
+
+/* ====== КАРТА В ФУТЕРЕ ====== */
+.footer-map{max-width:420px;margin:28px auto 18px;padding:0 20px}
+.footer-map h3{color:var(--accent);font-size:.95rem;margin-bottom:10px;text-align:center;font-weight:bold}
+.footer-map iframe{display:block;width:100%;height:220px;border:0;border-radius:var(--radius);box-shadow:var(--shadow);background:var(--bg-alt)}
+
+/* ====== УТИЛИТЫ ====== */
+.highlight{animation:highlightPulse 2s ease;border-radius:var(--radius)}
+@keyframes highlightPulse{0%,100%{box-shadow:0 0 0 0 rgba(96,165,250,0)}50%{box-shadow:0 0 0 6px rgba(96,165,250,.5)}}
+.to-top{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;background:var(--accent-2);color:#fff;border:none;cursor:pointer;font-size:1.3rem;display:none;align-items:center;justify-content:center;box-shadow:var(--shadow);z-index:90;transition:var(--transition)}
+.to-top.visible{display:flex}
+.to-top:hover{background:var(--accent);transform:translateY(-3px)}
+
+/* ====== АДАПТИВ ====== */
+@media(max-width:900px){
+  .info-grid,.weapon-detail-grid{grid-template-columns:1fr}
+  .video-slider{padding:0 46px}
+  .slider-btn{width:40px;height:40px;font-size:1.4rem}
+}
+@media(max-width:768px){
+  header h1{font-size:1.05rem}
+  header .site-subtitle{font-size:.72rem}
+  .page-nav button{padding:6px 12px;font-size:.78rem}
+  nav.anchor-nav a{padding:4px 9px;font-size:.76rem}
+  h2{font-size:1.2rem}
+  .container{padding:20px 14px 40px}
+  section{margin-bottom:45px;scroll-margin-top:220px}
+  .model-container iframe{height:320px}
+  .gallery img{height:180px}
+  .stat-card .stat-value{font-size:1.6rem}
+  .video-slider{padding:0}
+  .slider-btn{width:38px;height:38px;font-size:1.3rem}
+  .video-slide{gap:16px;padding:0}
+  .scroll-box-history{height:420px}
+  .scroll-box-mods{height:360px}
+}
+@media(max-width:480px){
+  .weapon-list{grid-template-columns:1fr 1fr}
+  .weapon-card h3{font-size:.9rem}
+  .specs-table td{padding:9px 12px;font-size:.85rem}
+  .scroll-box{padding:14px}
+  .scroll-box-history{height:380px}
+  .scroll-box-mods{height:320px}
+}
+</style>
+</head>
+<body>
+
+  <audio id="background-music" autoplay loop>
+    <source src="The Neighbourhood- The Beach (Instrumental _ SLOWED + REWERB).mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="sky-bg" id="skyBg" aria-hidden="true">
+  <div class="sky-layer sky-night-base"></div>
+  <div class="sky-layer sky-stars-1"></div>
+  <div class="sky-layer sky-stars-2"></div>
+  <div class="sky-layer sky-stars-3"></div>
+  <div class="sky-layer sky-nebula-1"></div>
+  <div class="sky-layer sky-nebula-2"></div>
+  <div class="sky-layer sky-shooting"></div>
+  <div class="sky-layer sky-day-base"></div>
+  <div class="sky-layer sky-clouds-1"></div>
+  <div class="sky-layer sky-clouds-2"></div>
+  <div class="sky-layer sky-clouds-3"></div>
+  <div class="sky-layer sky-custom-layer"></div>
+</div>
+
+<header>
+  <div class="theme-switcher" id="themeSwitcher" role="group" aria-label="Выбор темы">
+    <button data-theme-set="light" title="Светлая тема" aria-label="Светлая тема">☀️</button>
+    <button data-theme-set="dark" title="Тёмная тема" aria-label="Тёмная тема">🌙</button>
+    <button data-theme-set="custom" title="Своя тема" aria-label="Своя тема">🎨</button>
+  </div>
+
+  <h1>Су-34 — фронтовой бомбардировщик ВКС России</h1>
+  <div class="site-subtitle">Полный информационный портал: история, ТТХ, вооружение, пилоты и видеогалерея</div>
+
+  <div class="page-nav" id="pageNav">
+    <button class="active" data-page="home"><span class="nav-ico">🛩️</span>Главная</button>
+    <button data-page="pilots"><span class="nav-ico">🎖️</span>Пилоты и вылеты</button>
+    <button data-page="videos"><span class="nav-ico">▶️</span>Видео</button>
+  </div>
+
+  <nav class="anchor-nav" id="anchorNav">
+    <a href="#home">О самолёте</a>
+    <a href="#specs">ТТХ</a>
+    <a href="#history">История</a>
+    <a href="#mods">Модификации</a>
+    <a href="#weapons">Вооружение</a>
+    <a href="#facts">Факты</a>
+    <a href="#gallery">Галерея</a>
+  </nav>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search" placeholder="Поиск по сайту: ракеты, бомбы, пилоты, вылеты, видео..." autocomplete="off">
+    <span class="search-hint">Ctrl K</span>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</header>
+
+<div class="theme-modal" id="themeModal" role="dialog" aria-modal="true" aria-labelledby="tmTitle">
+  <div class="theme-modal-content">
+    <h3 id="tmTitle">🎨 Настройка своей темы
+      <button class="tm-close" id="tmClose" aria-label="Закрыть">✕</button>
+    </h3>
+    <div class="tm-section">
+      <label>Фоновое изображение</label>
+      <div class="tm-upload">
+        <input type="file" id="customBgUpload" accept="image/*">
+        <button class="tm-btn" id="removeCustomBg" type="button">Убрать фон</button>
+      </div>
+    </div>
+    <div class="tm-section">
+      <label>Готовые палитры</label>
+      <div class="palette-presets" id="palettePresets"></div>
+    </div>
+    <div class="tm-section">
+      <label>Цвета (нажмите на образец)</label>
+      <div class="color-row">
+        <label><span>Фон</span><input type="color" id="colorBg" value="#0d1117"></label>
+        <label><span>Панели</span><input type="color" id="colorBgAlt" value="#161b22"></label>
+        <label><span>Текст</span><input type="color" id="colorText" value="#e6edf3"></label>
+        <label><span>Акцент</span><input type="color" id="colorAccent" value="#60a5fa"></label>
+      </div>
+    </div>
+    <div class="tm-actions">
+      <button class="tm-btn" id="tmReset" type="button">Сбросить</button>
+      <button class="tm-btn primary" id="tmApply" type="button">Применить</button>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛКА ЗАГРУЗКИ ФОТО -->
+<div class="upload-modal" id="uploadModal">
+  <div class="upload-content">
+    <h3>📸 Добавить своё фото <button class="tm-close" id="uploadClose" aria-label="Закрыть">✕</button></h3>
+    <label for="photoTitle">Название фотографии</label>
+    <input type="text" id="photoTitle" placeholder="Например: Су-34 на взлёте" maxlength="60">
+    <label for="photoFile">Файл изображения (макс. 2 МБ)</label>
+    <input type="file" id="photoFile" accept="image/*">
+    <div class="tm-actions">
+      <button class="tm-btn" id="uploadCancel" type="button">Отмена</button>
+      <button class="tm-btn primary" id="uploadSave" type="button">Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<!-- ЛАЙТБОКС (ПОЛНЫЙ ЭКРАН) -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <img id="lightboxImg" src="" alt="Просмотр">
+</div>
+
+<div class="container">
+
+  <!-- ==================== СТРАНИЦА 1 ==================== -->
+  <div class="page active" id="page-home">
+
+    <section id="home" data-search="Су-34 самолёт бомбардировщик ВКС Россия Fullback Т-10В">
+      <h2><span class="h2-ico">🛩️</span>О самолёте</h2>
+      <div class="info-grid">
+        <div class="info-text">
+          <p><strong>Су-34</strong> (изделие Т-10В, по кодификации НАТО — Fullback «Защитник») — советский и российский многофункциональный фронтовой сверхзвуковой истребитель-бомбардировщик.</p>
+          <p>Предназначен для нанесения ударов по наземным, надводным и воздушным целям в оперативной и тактической глубине, в условиях сильного противодействия ПВО.</p>
+          <p><strong>Первый полёт:</strong> 13 апреля 1990 года (прототип Т-10В-1).</p>
+          <p><strong>Принят на вооружение:</strong> 21 марта 2014 года.</p>
+          <p><strong>Производитель:</strong> Новосибирский авиационный завод имени В. П. Чкалова.</p>
+          <p><strong>Экипаж:</strong> 2 человека (расположены рядом).</p>
+          <p><strong>Максимальная боевая нагрузка:</strong> до 8,5 тонн.</p>
+          <p><strong>Узлы подвески:</strong> 12 (6 под крылом, 4 под фюзеляжем, 2 на законцовках).</p>
+          <p><strong>Ключевая особенность:</strong> бронированная кабина-капсула, способная выдержать попадание снарядов калибра до 20 мм.</p>
+        </div>
+        <div class="model-container">
+          <iframe src="https://sketchfab.com/models/2e81f16e6769441da3b5bc50237473ce/embed" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="specs" data-search="ТТХ технические характеристики Су-34 скорость дальность масса двигатель АЛ-31Ф">
+      <h2><span class="h2-ico">📊</span>Тактико-технические характеристики</h2>
+      <table class="specs-table">
+        <caption>Основные лётно-технические данные Су-34</caption>
+        <tbody>
+          <tr><td>Экипаж</td><td>2 человека (размещение «плечом к плечу»)</td></tr>
+          <tr><td>Длина</td><td>23,34 м</td></tr>
+          <tr><td>Размах крыла</td><td>14,7 м</td></tr>
+          <tr><td>Высота</td><td>6,09 м</td></tr>
+          <tr><td>Площадь крыла</td><td>62,0 м²</td></tr>
+          <tr><td>Масса пустого</td><td>22 500 кг</td></tr>
+          <tr><td>Нормальная взлётная масса</td><td>39 000 кг</td></tr>
+          <tr><td>Максимальная взлётная масса</td><td>45 100 кг</td></tr>
+          <tr><td>Максимальная боевая нагрузка</td><td>8 000 – 8 500 кг</td></tr>
+          <tr><td>Топливо (внутреннее)</td><td>12 100 кг</td></tr>
+          <tr><td>Двигатели</td><td>2 × ТРДДФ АЛ-31Ф (или АЛ-31Ф-М1)</td></tr>
+          <tr><td>Тяга на форсаже</td><td>2 × 12 500 кгс</td></tr>
+          <tr><td>Максимальная скорость на высоте</td><td>1 900 км/ч (≈1,8 Маха)</td></tr>
+          <tr><td>Максимальная скорость у земли</td><td>1 400 км/ч</td></tr>
+          <tr><td>Крейсерская скорость</td><td>900 – 1 000 км/ч</td></tr>
+          <tr><td>Практическая дальность</td><td>4 000 км (с ПТБ — до 7 000 км)</td></tr>
+          <tr><td>Боевой радиус</td><td>1 100 км</td></tr>
+          <tr><td>Практический потолок</td><td>15 000 м</td></tr>
+          <tr><td>Скороподъёмность</td><td>200 м/с</td></tr>
+          <tr><td>Длина разбега</td><td>1 200 м</td></tr>
+          <tr><td>Длина пробега</td><td>950 м</td></tr>
+          <tr><td>Максимальная перегрузка</td><td>+7 G</td></tr>
+          <tr><td>Вооружение (встроенное)</td><td>30-мм пушка ГШ-301, 180 снарядов</td></tr>
+          <tr><td>Узлы подвески</td><td>12</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="design" data-search="конструкция Су-34 бронекапсула кабина катапульта К-36ДМ">
+      <h2><span class="h2-ico">🔧</span>Конструктивные особенности</h2>
+      <div class="features-grid">
+        <div class="feature-card"><span class="fc-icon">🛡️</span><h3>Бронированная капсула</h3><p>Кабина экипажа выполнена в виде титановой броневой капсулы толщиной до 17 мм, защищающей от снарядов калибром до 20 мм и осколков.</p></div>
+        <div class="feature-card"><span class="fc-icon">💺</span><h3>Катапультные кресла К-36ДМ</h3><p>Обеспечивают безопасное покидание самолёта на скорости от 0 до 1 400 км/ч и с нулевой высоты.</p></div>
+        <div class="feature-card"><span class="fc-icon">📡</span><h3>РЛС «Ш-141»</h3><p>Многофункциональная БРЛС с фазированной антенной решёткой, обеспечивающая картографирование и сопровождение целей.</p></div>
+        <div class="feature-card"><span class="fc-icon">🖥️</span><h3>Стеклянная кабина</h3><p>Четыре многофункциональных цветных дисплея и широкоугольный индикатор на лобовом стекле (ИЛС).</p></div>
+        <div class="feature-card"><span class="fc-icon">🛢️</span><h3>Система дозаправки</h3><p>Выдвижная штанга дозаправки в полёте, что существенно расширяет боевой радиус.</p></div>
+        <div class="feature-card"><span class="fc-icon">🎯</span><h3>Прицельный комплекс «Платан»</h3><p>Оптико-электронная система с лазерным дальномером-целеуказателем и телевизионным каналом.</p></div>
+        <div class="feature-card"><span class="fc-icon">📶</span><h3>Комплекс РЭБ «Хибины»</h3><p>Станция радиоэлектронной борьбы, подавляющая РЛС и головки самонаведения ракет противника.</p></div>
+        <div class="feature-card"><span class="fc-icon">🔗</span><h3>Штанга ПВД</h3><p>Характерная «игла» в носовой части корпуса — датчик воздушного давления и углов атаки.</p></div>
+      </div>
+    </section>
+
+    <!-- ИСТОРИЯ С SIMPLEBAR -->
+    <section id="history" data-search="история создания Су-34 Т-10В ОКБ Сухого Ле Бурже">
+      <h2><span class="h2-ico">📜</span>История создания</h2>
+      <div class="scroll-box scroll-box-history" data-simplebar data-simplebar-auto-hide="false">
+        <div class="timeline">
+          <div class="timeline-item"><div class="year">1986</div><p>19 июня ОКБ Сухого получило заказ Минобороны СССР на разработку проекта Т-10В — будущего Су-34. За основу взят истребитель Су-27.</p></div>
+          <div class="timeline-item"><div class="year">1990</div><p>13 апреля состоялся первый полёт прототипа Т-10В-1. Лётчик-испытатель — Анатолий Иванов.</p></div>
+          <div class="timeline-item"><div class="year">1993</div><p>Поднялся в воздух первый самолёт, построенный на Новосибирском авиационном производственном объединении имени Чкалова.</p></div>
+          <div class="timeline-item"><div class="year">1995</div><p>Первый публичный показ под обозначением Су-32ФН на авиасалоне в Ле Бурже (Франция).</p></div>
+          <div class="timeline-item"><div class="year">2006</div><p>Запущена серийная сборка на Новосибирском авиазаводе. Первые два серийных самолёта поступили на опытную эксплуатацию.</p></div>
+          <div class="timeline-item"><div class="year">2008</div><p>Первое боевое применение в ходе операции по принуждению Грузии к миру. Применялись комплексы РЭБ «Хибины».</p></div>
+          <div class="timeline-item"><div class="year">2014</div><p>21 марта Су-34 официально принят на вооружение ВКС России.</p></div>
+          <div class="timeline-item"><div class="year">2015</div><p>Начало массового боевого применения в Сирии в составе авиагруппы ВКС России.</p></div>
+          <div class="timeline-item"><div class="year">2021</div><p>Начато производство модернизированной версии Су-34М с расширенными возможностями применения вооружения.</p></div>
+          <div class="timeline-item"><div class="year">2022</div><p>Активное применение в ходе СВО, в том числе с новыми планирующими боеприпасами с УМПК.</p></div>
+          <div class="timeline-item"><div class="year">2024</div><p>Продолжение серийного выпуска Су-34М, расширение номенклатуры высокоточного вооружения.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- МОДИФИКАЦИИ С SIMPLEBAR -->
+    <section id="mods" data-search="модификации Су-34 Су-32 Су-34М Су-34НВО Су-34МЭ">
+      <h2><span class="h2-ico">🧬</span>Модификации</h2>
+      <div class="scroll-box scroll-box-mods" data-simplebar data-simplebar-auto-hide="false">
+        <div class="mod-card"><h3>Су-34 (базовая)<span class="mod-tag">серийная</span></h3><p>Серийный фронтовой бомбардировщик для ВКС России. Оснащён современным бортовым радиоэлектронным оборудованием, бронекапсулой для экипажа и широким спектром вооружения.</p></div>
+        <div class="mod-card"><h3>Су-32 (экспортная)<span class="mod-tag">экспорт</span></h3><p>Экспортная модификация Су-34. Отличается составом бортового оборудования и системами связи, адаптированными под требования заказчика.</p></div>
+        <div class="mod-card"><h3>Су-34М<span class="mod-tag">модернизация</span></h3><p>Модернизированная версия с расширенными возможностями по применению вооружения, включая крылатые ракеты большой дальности и новые планирующие боеприпасы.</p></div>
+        <div class="mod-card"><h3>Су-34НВО<span class="mod-tag">модернизация</span></h3><p>Модификация с расширенным составом бортового оборудования и возможностью применения новых типов управляемого вооружения.</p></div>
+        <div class="mod-card"><h3>Су-34МЭ<span class="mod-tag">экспорт</span></h3><p>Экспортный вариант модернизированного Су-34М. Отличается составом системы «свой–чужой» и системами связи.</p></div>
+        <div class="mod-card"><h3>Су-34ПК<span class="mod-tag">проект</span></h3><p>Проектный вариант с усиленным противокорабельным вооружением, предназначенный для борьбы с крупными надводными группировками.</p></div>
+      </div>
+    </section>
+
+    <!-- ВООРУЖЕНИЕ С ФИЛЬТРОМ -->
+    <section id="weapons" data-search="вооружение Су-34 ракеты бомбы пушка ГШ-301">
+      <h2><span class="h2-ico">🚀</span>Вооружение</h2>
+      <p class="lead">
+        Всего в каталоге: <strong id="weapon-count" style="color:var(--accent)"></strong> единиц.
+        Нажмите на карточку, чтобы увидеть фото и подробную информацию.
+      </p>
+      
+      <!-- Фильтр -->
+      <div class="weapon-filters" id="weaponFilters"></div>
+
+      <div id="weapon-categories"></div>
+      
+      <div id="weapon-detail">
+        <div class="weapon-detail-grid">
+          <div class="weapon-detail-info" id="weapon-info"></div>
+          <div class="weapon-photo-wrap" id="weapon-photo"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="compare" data-search="сравнение Су-34 F-15E Су-30МКИ аналоги">
+      <h2><span class="h2-ico">⚖️</span>Сравнение с аналогами</h2>
+      <p class="lead">Сопоставление Су-34 с близкими по классу зарубежными и отечественными машинами.</p>
+      <div style="overflow-x:auto;">
+        <table class="compare-table">
+          <thead><tr><th>Параметр</th><th>Су-34</th><th>F-15E Strike Eagle</th><th>Су-30МКИ</th><th>F/A-18E Super Hornet</th></tr></thead>
+          <tbody>
+            <tr><td>Экипаж</td><td>2</td><td>2</td><td>2</td><td>1–2</td></tr>
+            <tr><td>Макс. взлётная масса</td><td>45 100 кг</td><td>36 700 кг</td><td>34 500 кг</td><td>29 900 кг</td></tr>
+            <tr><td>Боевая нагрузка</td><td>8 500 кг</td><td>10 400 кг</td><td>8 000 кг</td><td>8 000 кг</td></tr>
+            <tr><td>Макс. скорость</td><td>1 900 км/ч</td><td>2 650 км/ч</td><td>2 120 км/ч</td><td>1 915 км/ч</td></tr>
+            <tr><td>Боевой радиус</td><td>1 100 км</td><td>1 270 км</td><td>1 500 км</td><td>720 км</td></tr>
+            <tr><td>Практический потолок</td><td>15 000 м</td><td>18 200 м</td><td>17 300 м</td><td>15 000 м</td></tr>
+            <tr><td>Встроенная пушка</td><td>ГШ-301, 30 мм</td><td>M61A1, 20 мм</td><td>ГШ-301, 30 мм</td><td>M61A2, 20 мм</td></tr>
+            <tr><td>Узлы подвески</td><td>12</td><td>11</td><td>12</td><td>11</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="facts" data-search="факты Су-34 интересное неизвестное">
+      <h2><span class="h2-ico">💡</span>Интересные факты</h2>
+      <ul class="facts-list">
+        <li><strong>Прозвище «Утёнок».</strong> Из-за характерной приплюснутой носовой части с широкой кабиной самолёт получил в войсках прозвище «Утёнок».</li>
+        <li><strong>Рекорд дальности.</strong> В 2014 году два Су-34 совершили беспосадочный перелёт из Новосибирска в Крым и обратно с дозаправками, преодолев более 10 000 км.</li>
+        <li><strong>Кресло К-36ДМ.</strong> Катапультное кресло обеспечивает спасение экипажа даже при нулевой скорости и высоте.</li>
+        <li><strong>Туалет на борту.</strong> В отличие от большинства тактических истребителей, в Су-34 предусмотрено место для биотуалета.</li>
+        <li><strong>Титановая капсула.</strong> Спасает экипаж от снарядов калибром до 20 мм — уникальное решение для машин этого класса.</li>
+        <li><strong>Обогрев кабины.</strong> Кабина отапливается от двигателей, что позволяет экипажу работать в комфортных условиях.</li>
+        <li><strong>Штанга ПВД.</strong> Характерная «игла» в носовой части служит для измерения воздушного давления и углов атаки.</li>
+        <li><strong>Размещение экипажа.</strong> Лётчик и штурман сидят рядом, а не друг за другом — это улучшает взаимодействие.</li>
+        <li><strong>Применение УМПК.</strong> С 2023 года Су-34 активно применяет планирующие бомбы с УМПК — удары вне зоны ПВО.</li>
+        <li><strong>Стоимость.</strong> По разным оценкам, стоимость одного Су-34 составляет около 35–50 млн долларов США.</li>
+        <li><strong>Количество выпущенных машин.</strong> По состоянию на середину 2020-х выпущено более 150 серийных Су-34.</li>
+        <li><strong>Модернизация Су-34М.</strong> Новая версия получила расширенную номенклатуру вооружения и улучшенную бортовую электронику.</li>
+      </ul>
+    </section>
+
+    <!-- ГАЛЕРЕЯ С РЕЙТИНГОМ И ЗАГРУЗКОЙ -->
+    <section id="gallery" data-search="галерея фотографии Су-34 фото">
+      <div class="gallery-header">
+        <h2 style="margin-bottom:0;border:none;padding:0"><span class="h2-ico">📸</span>Фотографии Су-34</h2>
+        <button class="add-photo-btn" id="openUploadBtn">➕ Добавить своё фото</button>
+      </div>
+      
+      <div class="gallery" id="galleryContainer">
+        <!-- Сюда JS будет рендерить фотографии -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ==================== СТРАНИЦА 2 ==================== -->
+  <div class="page" id="page-pilots">
+
+    <section id="pilots-intro" data-search="пилоты Су-34 экипаж лётчики штурманы">
+      <h2><span class="h2-ico">🎖️</span>Пилоты и боевые вылеты</h2>
+      <p class="lead">Су-34 — двухместная машина: лётчик и штурман-оператор работают «плечом к плечу». Ниже собрана информация об известных пилотах, боевых вылетах, поражённых целях и статистике применения.</p>
+
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-value" data-count="150">0</div><div class="stat-label">Серийных Су-34 выпущено</div></div>
+        <div class="stat-card"><div class="stat-value" data-count="2">0</div><div class="stat-label">Человека в экипаже</div></div>
+        <div class="stat-card"><div class="stat-value" data-count="1100">0</div><div class="stat-label">км боевой радиус</div></div>
+        <div class="stat-card"><div class="stat-value" data-count="8500">0</div><div class="stat-label">кг боевая нагрузка</div></div>
+        <div class="stat-card"><div class="stat-value" data-count="12">0</div><div class="stat-label">Узлов подвески</div></div>
+        <div class="stat-card"><div class="stat-value" data-count="4000">0</div><div class="stat-label">км практическая дальность</div></div>
+      </div>
+    </section>
+
+    <section id="crew" data-search="экипаж Су-34 лётчик штурман обязанности">
+      <h2><span class="h2-ico">👥</span>Состав экипажа</h2>
+      <div class="features-grid">
+        <div class="feature-card"><span class="fc-icon">✈️</span><h3>Лётчик (командир экипажа)</h3><p>Пилотирует самолёт, управляет оружием при воздушном бое, принимает решение на применение вооружения.</p></div>
+        <div class="feature-card"><span class="fc-icon">🎯</span><h3>Штурман-оператор</h3><p>Работает с прицельно-навигационным комплексом, ведёт поиск и распознавание целей, наводит управляемое оружие.</p></div>
+        <div class="feature-card"><span class="fc-icon">🧠</span><h3>Распределение внимания</h3><p>Размещение «плечом к плечу» позволяет экипажу обмениваться информацией без использования внутренней связи.</p></div>
+        <div class="feature-card"><span class="fc-icon">🛡️</span><h3>Общая бронекапсула</h3><p>Оба члена экипажа находятся в единой титановой капсуле, что повышает выживаемость.</p></div>
+      </div>
+    </section>
+
+    <section id="known-pilots" data-search="известные пилоты Су-34 лётчики герои России">
+      <h2><span class="h2-ico">🌟</span>Известные пилоты Су-34</h2>
+      <p class="lead">Ниже — публично известные лётчики и штурманы, связанные с эксплуатацией и боевым применением Су-34.</p>
+      <div class="pilots-grid" id="pilotsGrid"></div>
+    </section>
+
+    <section id="mission-types" data-search="боевые задачи Су-34 типы вылетов">
+      <h2><span class="h2-ico">📋</span>Типовые боевые задачи</h2>
+      <div class="features-grid">
+        <div class="feature-card"><span class="fc-icon">💥</span><h3>Удары по наземным целям</h3><p>Поражение командных пунктов, узлов связи, складов, техники и укреплений противника.</p></div>
+        <div class="feature-card"><span class="fc-icon">🚢</span><h3>Борьба с надводными силами</h3><p>Применение противокорабельных ракет для поражения кораблей и катеров противника.</p></div>
+        <div class="feature-card"><span class="fc-icon">📡</span><h3>Подавление ПВО</h3><p>Уничтожение РЛС и зенитных комплексов противорадиолокационными ракетами.</p></div>
+        <div class="feature-card"><span class="fc-icon">✈️</span><h3>Воздушный бой</h3><p>Применение ракет «воздух–воздух» для самообороны и сопровождения ударных групп.</p></div>
+        <div class="feature-card"><span class="fc-icon">🔍</span><h3>Разведка</h3><p>Ведение оптико-электронной, радиолокационной и радиотехнической разведки.</p></div>
+        <div class="feature-card"><span class="fc-icon">🛰️</span><h3>Удары вне зоны ПВО</h3><p>Применение планирующих боеприпасов с УМПК на удалении 65–100 км без входа в зону ПВО.</p></div>
+      </div>
+    </section>
+
+    <section id="campaigns" data-search="кампании Су-34 Южная Осетия Сирия СВО">
+      <h2><span class="h2-ico">🗺️</span>Хроника боевого применения</h2>
+      <div class="campaign-card"><h3>Война в Южной Осетии (2008)</h3><div class="camp-meta">8–12 августа 2008 года</div><p>Первое боевое применение Су-34. Машины использовались для подавления грузинской ПВО, в том числе с применением комплексов РЭБ «Хибины».</p></div>
+      <div class="campaign-card"><h3>Операция в Сирии (2015–2017)</h3><div class="camp-meta">с 30 сентября 2015 года</div><p>Массовое боевое применение Су-34 в составе авиагруппы ВКС России на авиабазе Хмеймим.</p></div>
+      <div class="campaign-card"><h3>Сирийская кампания (2018–2020)</h3><div class="camp-meta">продолжение операции</div><p>Продолжение применения Су-34 для поддержки правительственных войск, удары по позициям боевиков.</p></div>
+      <div class="campaign-card"><h3>Специальная военная операция (с 2022)</h3><div class="camp-meta">с 24 февраля 2022 года</div><p>Интенсивное боевое применение Су-34. С 2023 года — массовое применение планирующих бомб с УМПК.</p></div>
+      <div class="campaign-card"><h3>Специальная военная операция (2024–2026)</h3><div class="camp-meta">продолжение</div><p>Су-34М продолжает оставаться одной из основных ударных машин ВКС России.</p></div>
+    </section>
+
+    <section id="targets" data-search="поражённые цели Су-34 статистика типы целей">
+      <h2><span class="h2-ico">🎯</span>Типы поражённых целей</h2>
+      <p class="lead">Обобщённые категории целей, по которым Су-34 применялся в ходе боевых действий.</p>
+      <div class="target-bars">
+        <div class="target-bar"><div class="tb-head"><span>Командные пункты и узлы связи</span><strong>~95%</strong></div><div class="tb-track"><div class="tb-fill" style="width:95%"></div></div></div>
+        <div class="target-bar"><div class="tb-head"><span>Склады ГСМ и боеприпасов</span><strong>~90%</strong></div><div class="tb-track"><div class="tb-fill" style="width:90%"></div></div></div>
+        <div class="target-bar"><div class="tb-head"><span>Бронетехника и артиллерия</span><strong>~88%</strong></div><div class="tb-track"><div class="tb-fill" style="width:88%"></div></div></div>
+        <div class="target-bar"><div class="tb-head"><span>Укрепления и опорные пункты</span><strong>~85%</strong></div><div class="tb-track"><div class="tb-fill" style="width:85%"></div></div></div>
+        <div class="target-bar"><div class="tb-head"><span>Радиолокационные станции и ПВО</span><strong>~80%</strong></div><div class="tb-track"><div class="tb-fill" style="width:80%"></div></div></div>
+        <div class="target-bar"><div class="tb-head"><span>Живая сила противника</span><strong>~75%</strong></div><div class="tb-track"><div class="tb-fill" style="width:75%"></div></div></div>
+        <div class="target-bar"><div class="tb-head"><span>Мосты и переправы</span><strong>~65%</strong></div><div class="tb-track"><div class="tb-fill" style="width:65%"></div></div></div>
+        <div class="target-bar"><div class="tb-head"><span>Надводные цели</span><strong>~40%</strong></div><div class="tb-track"><div class="tb-fill" style="width:40%"></div></div></div>
+      </div>
+    </section>
+
+    <section id="sorties" data-search="боевые вылеты Су-34 таблица Сирия">
+      <h2><span class="h2-ico">📅</span>Примеры боевых вылетов</h2>
+      <p class="lead">Сводные данные о типовых боевых вылетах Су-34 в различных кампаниях.</p>
+      <div style="overflow-x:auto;">
+        <table class="sorties-table">
+          <thead><tr><th>Дата</th><th>Регион</th><th>Тип задачи</th><th>Применённое вооружение</th><th>Результат</th></tr></thead>
+          <tbody>
+            <tr><td>08.08.2008</td><td>Южная Осетия</td><td>Подавление ПВО</td><td>РЭБ «Хибины», Х-31П</td><td class="td-target">Уничтожение РЛС</td></tr>
+            <tr><td>30.09.2015</td><td>Сирия (Хмеймим)</td><td>Удар по инфраструктуре</td><td>ФАБ-500, КАБ-500Кр</td><td class="td-target">Поражение складов</td></tr>
+            <tr><td>2015–2016</td><td>Сирия</td><td>Поддержка войск</td><td>Х-29Л, ОФАБ-500</td><td class="td-target">Уничтожение техники</td></tr>
+            <tr><td>2016</td><td>Сирия (Пальмира)</td><td>Удары по опорным пунктам</td><td>КАБ-500Л, ФАБ-500</td><td class="td-target">Прорыв обороны</td></tr>
+            <tr><td>2022–2023</td><td>СВО</td><td>Удары по ПВО</td><td>Х-31П, Х-58УШКЭ</td><td class="td-target">Уничтожение РЛС</td></tr>
+            <tr><td>2023–2024</td><td>СВО</td><td>Планирующие удары</td><td>ФАБ-500Т с УМПК</td><td class="td-target">Удары вне зоны ПВО</td></tr>
+            <tr><td>2024–2026</td><td>СВО</td><td>Удары по бронетехнике</td><td>РБК-500 СПБЭ-Д, Х-38</td><td class="td-target">Поражение колонн</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="losses" data-search="боевые потери Су-34 сбитые">
+      <h2><span class="h2-ico">⚠️</span>Боевые потери</h2>
+      <p class="lead">По публичным данным открытых источников, в ходе боевых действий Су-34 несли потери.</p>
+      <ul class="losses-list">
+        <li><strong>2008 год.</strong> В ходе войны в Южной Осетии боевых потерь Су-34 не зафиксировано.</li>
+        <li><strong>Сирия.</strong> Официально подтверждённых боевых потерь Су-34 в Сирии нет.</li>
+        <li><strong>СВО (2022–2026).</strong> По данным открытых источников, в ходе СВО было потеряно значительное количество Су-34 — как от огня ПВО, так и в результате аварий.</li>
+        <li><strong>Причины.</strong> Основные причины потерь — поражение зенитными ракетами и аварии по техническим причинам.</li>
+        <li><strong>Меры.</strong> После потерь 2022 года активно применяются планирующие боеприпасы с УМПК.</li>
+      </ul>
+    </section>
+
+    <section id="awards" data-search="награды Су-34 герои России ордена">
+      <h2><span class="h2-ico">🏅</span>Награды и звания</h2>
+      <div class="awards-grid">
+        <div class="award-card"><div class="award-icon">⭐</div><h3>Герой России</h3><p>Высшее звание, присваиваемое лётчикам и штурманам Су-34 за мужество и героизм.</p></div>
+        <div class="award-card"><div class="award-icon">🎖️</div><h3>Орден Мужества</h3><p>Массовая награда среди экипажей Су-34 за боевые заслуги.</p></div>
+        <div class="award-card"><div class="award-icon">🥇</div><h3>Орден «За военные заслуги»</h3><p>Награда за образцовое выполнение боевых задач.</p></div>
+        <div class="award-card"><div class="award-icon">🎗️</div><h3>Медаль «За отвагу»</h3><p>Награда за личное мужество в бою.</p></div>
+        <div class="award-card"><div class="award-icon">✈️</div><h3>Заслуженный военный лётчик</h3><p>Почётное звание за большой вклад в освоение авиатехники.</p></div>
+        <div class="award-card"><div class="award-icon">🏆</div><h3>Снайперский удар</h3><p>Почётные наименования, присваиваемые лучшим экипажам.</p></div>
+      </div>
+    </section>
+
+    <section id="pilots-outro" data-search="итог пилоты Су-34">
+      <h2><span class="h2-ico">📝</span>Заключение</h2>
+      <p class="lead">Су-34 зарекомендовал себя как надёжная ударная машина, способная выполнять широкий спектр задач в сложных условиях. Дальнейшая модернизация машины и расширение номенклатуры вооружения позволяют рассчитывать на то, что Су-34 останется в строю ВКС России ещё долгие годы.</p>
+    </section>
+
+  </div>
+
+  <!-- ==================== СТРАНИЦА 3 ==================== -->
+  <div class="page" id="page-videos">
+
+    <section id="videos-intro" data-search="видео Су-34 YouTube обзоры">
+      <h2><span class="h2-ico">▶️</span>Видеогалерея</h2>
+      <p class="lead">Подборка видеоматериалов о Су-34: обзоры, документальные фильмы, боевое применение и технические разборы.</p>
+
+      <div class="video-note">
+        <strong>Внимание:</strong> ниже используются встраиваемые ролики YouTube.
+        Чтобы заменить видео, откройте массив <code>videos</code> в JavaScript и укажите нужный
+        <code>id</code> (идентификатор ролика с YouTube).
+      </div>
+
+      <div class="video-filters" id="videoFilters">
+        <button class="active" data-filter="all">Все</button>
+        <button data-filter="review">Обзоры</button>
+        <button data-filter="doc">Документальные</button>
+        <button data-filter="combat">Боевое применение</button>
+        <button data-filter="tech">Технические</button>
+        <button data-filter="history">История</button>
+      </div>
+
+      <div class="video-empty" id="videoEmpty" style="display:none;">
+        <span class="ve-ico">🎬</span>
+        По выбранной категории видео не найдено.
+      </div>
+
+      <div class="video-slider" id="videoSlider">
+        <div class="video-slider-viewport">
+          <div class="video-slider-track" id="videoTrack"></div>
+        </div>
+        <button class="slider-btn prev" id="videoPrev" type="button" aria-label="Предыдущий слайд">‹</button>
+        <button class="slider-btn next" id="videoNext" type="button" aria-label="Следующий слайд">›</button>
+        <div class="slider-counter" id="videoCounter"></div>
+        <div class="slider-dots" id="videoDots"></div>
+      </div>
+    </section>
+
+    <section id="channels" data-search="YouTube каналы авиация Су-34">
+      <h2><span class="h2-ico">📺</span>Полезные YouTube-каналы</h2>
+      <p class="lead">Каналы, на которых регулярно выходят материалы об авиации и, в частности, о Су-34.</p>
+      <div class="channels-grid">
+        <a class="channel-card" href="https://www.youtube.com/results?search_query=%D0%A1%D1%83-34" target="_blank" rel="noopener noreferrer"><div class="ch-ico">✈️</div><h3>Поиск: Су-34</h3><p>Подборка актуальных роликов по запросу «Су-34» на YouTube.</p></a>
+        <a class="channel-card" href="https://www.youtube.com/results?search_query=%D0%A1%D1%83-34+%D0%B1%D0%BE%D0%B5%D0%B2%D0%BE%D0%B5+%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5" target="_blank" rel="noopener noreferrer"><div class="ch-ico">💥</div><h3>Боевое применение</h3><p>Ролики о боевом применении Су-34 в различных конфликтах.</p></a>
+        <a class="channel-card" href="https://www.youtube.com/results?search_query=%D0%A1%D1%83-34+%D0%BE%D0%B1%D0%B7%D0%BE%D1%80" target="_blank" rel="noopener noreferrer"><div class="ch-ico">🔍</div><h3>Обзоры</h3><p>Технические обзоры, разборы конструкции и вооружения.</p></a>
+        <a class="channel-card" href="https://www.youtube.com/results?search_query=%D0%A1%D1%83-34+%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9+%D1%84%D0%B8%D0%BB%D1%8C%D0%BC" target="_blank" rel="noopener noreferrer"><div class="ch-ico">🎬</div><h3>Документальные фильмы</h3><p>Документальные фильмы и передачи о самолёте.</p></a>
+        <a class="channel-card" href="https://www.youtube.com/results?search_query=%D0%A1%D1%83-34+%D0%BC%D0%BE%D0%B4%D0%B5%D1%80%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F+%D0%A1%D1%83-34%D0%9C" target="_blank" rel="noopener noreferrer"><div class="ch-ico">🛠️</div><h3>Су-34М и модернизация</h3><p>Материалы о модернизированной версии и новых возможностях.</p></a>
+        <a class="channel-card" href="https://www.youtube.com/results?search_query=%D0%A1%D1%83-34+%D0%A3%D0%9C%D0%9F%D0%9A" target="_blank" rel="noopener noreferrer"><div class="ch-ico">🛰️</div><h3>УМПК и планирующие бомбы</h3><p>Ролики о применении планирующих боеприпасов с УМПК.</p></a>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<button class="to-top" id="toTop" aria-label="Наверх">↑</button>
+
+<footer>
+  <div class="footer-nav">
+    <a href="#home">Главная</a>
+    <a href="#specs">ТТХ</a>
+    <a href="#history">История</a>
+    <a href="#weapons">Вооружение</a>
+    <a href="#" data-goto="pilots">Пилоты</a>
+    <a href="#" data-goto="videos">Видео</a>
+  </div>
+
+  <p>Сайт, посвящённый Су-34. Информация собрана из открытых источников.</p>
+  <p class="small">Материал носит информационно-справочный характер.</p>
+
+  <div class="social-links">
+    <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="social-link vk" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M13.16 18.5c-6.02 0-9.75-4.19-9.9-11.16h3.03c.1 5.13 2.44 7.3 4.24 7.75V7.34h2.86v4.32c1.79-.19 3.67-2.21 4.3-4.32h2.85c-.48 2.6-2.5 4.62-3.94 5.42 1.44.65 3.73 2.42 4.6 5.74h-3.14c-.68-2.13-2.37-3.78-4.67-4v4h-.23z"/></svg><span>ВКонтакте</span></a>
+    <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-link tg" aria-label="Telegram"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg><span>Telegram</span></a>
+    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-link ig" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38a5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg><span>Instagram</span></a>
+  </div>
+
+  <div class="footer-map">
+    <h3>📍 Аэропорт Шереметьево (SVO)</h3>
+    <iframe
+      src="https://www.google.com/maps?q=55.97278,37.41472&hl=ru&z=13&output=embed"
+      width="100%"
+      height="220"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allowfullscreen
+      title="Карта: аэропорт Шереметьево">
+    </iframe>
+  </div>
+
+  <p>© 2026 Су-34 — информационный портал</p>
+</footer>
+
+<!-- SimpleBar JS -->
+<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+
+<script>
+/* ====== 1. СИСТЕМА ТЕМ ====== */
+const THEMES = { DARK:'dark', LIGHT:'light', CUSTOM:'custom' };
+const PALETTES = {
+  ocean:  { bg:'#0a1628', bgAlt:'#12243d', text:'#e6f0fb', accent:'#38bdf8', label:'Океан' },
+  forest: { bg:'#0f1a14', bgAlt:'#1a2a1f', text:'#e8f3e8', accent:'#4ade80', label:'Лес' },
+  sunset: { bg:'#1a0f18', bgAlt:'#2a1a26', text:'#f5e8ef', accent:'#fb7185', label:'Закат' },
+  gold:   { bg:'#1a1408', bgAlt:'#2a2010', text:'#f7efd9', accent:'#fbbf24', label:'Золото' },
+  mono:   { bg:'#0a0a0a', bgAlt:'#1a1a1a', text:'#f5f5f5', accent:'#a3a3a3', label:'Моно' },
+  ruby:   { bg:'#1a0a0f', bgAlt:'#2a1218', text:'#f5e8ec', accent:'#ef4444', label:'Рубин' }
+};
+const DEFAULT_CUSTOM = { bg:'#0d1117', bgAlt:'#161b22', text:'#e6edf3', accent:'#60a5fa', image:'' };
+const themeState = { current: THEMES.DARK, custom: { ...DEFAULT_CUSTOM } };
+
+function loadThemeSettings() {
+  try {
+    const savedTheme = localStorage.getItem('su34-theme');
+    const savedCustom = localStorage.getItem('su34-custom');
+    if (savedTheme && Object.values(THEMES).includes(savedTheme)) themeState.current = savedTheme;
+    if (savedCustom) {
+      const parsed = JSON.parse(savedCustom);
+      themeState.custom = { ...DEFAULT_CUSTOM, ...parsed };
+    }
+  } catch (e) {}
+}
+function saveThemeSettings() {
+  try {
+    localStorage.setItem('su34-theme', themeState.current);
+    localStorage.setItem('su34-custom', JSON.stringify(themeState.custom));
+  } catch (e) {}
+}
+
+function hex2rgb(hex) {
+  hex = hex.replace('#','');
+  if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+  const n = parseInt(hex, 16);
+  return { r:(n >> 16) & 255, g:(n >> 8) & 255, b:n & 255 };
+}
+function rgb2hex(r,g,b) {
+  const to = v => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2,'0');
+  return '#' + to(r) + to(g) + to(b);
+}
+function shade(hex, factor) {
+  const { r,g,b } = hex2rgb(hex);
+  return rgb2hex(r * factor, g * factor, b * factor);
+}
+function mix(hexA, hexB, ratio) {
+  const a = hex2rgb(hexA), b = hex2rgb(hexB);
+  return rgb2hex(a.r*(1-ratio)+b.r*ratio, a.g*(1-ratio)+b.g*ratio, a.b*(1-ratio)+b.b*ratio);
+}
+function hexA(hex, alpha) {
+  const { r,g,b } = hex2rgb(hex);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function applyCustomVars() {
+  const root = document.documentElement;
+  const c = themeState.custom;
+  if (themeState.current === THEMES.CUSTOM) {
+    root.style.setProperty('--bg', c.bg);
+    root.style.setProperty('--bg-alt', c.bgAlt);
+    root.style.setProperty('--bg-soft', shade(c.bgAlt, 1.15));
+    root.style.setProperty('--bg-hover', shade(c.bgAlt, 1.3));
+    root.style.setProperty('--text', c.text);
+    root.style.setProperty('--text-dim', c.text);
+    root.style.setProperty('--muted', mix(c.text, c.bg, 0.55));
+    root.style.setProperty('--accent', c.accent);
+    root.style.setProperty('--accent-2', c.accent);
+    root.style.setProperty('--accent-3', shade(c.accent, 1.1));
+    root.style.setProperty('--border', mix(c.text, c.bg, 0.18));
+    root.style.setProperty('--border-soft', mix(c.text, c.bg, 0.10));
+    root.style.setProperty('--header-1', hexA(c.bgAlt, .75));
+    root.style.setProperty('--header-2', hexA(c.bg, .88));
+    root.style.setProperty('--custom-bg-image', c.image ? `url("${c.image}")` : 'none');
+  } else {
+    const props = ['--bg','--bg-alt','--bg-soft','--bg-hover','--text','--text-dim','--muted','--accent','--accent-2','--accent-3','--border','--border-soft','--header-1','--header-2','--custom-bg-image'];
+    props.forEach(p => root.style.removeProperty(p));
+  }
+}
+
+function setTheme(name, opts = {}) {
+  if (!Object.values(THEMES).includes(name)) return;
+  themeState.current = name;
+  document.documentElement.setAttribute('data-theme', name);
+  applyCustomVars();
+  document.querySelectorAll('#themeSwitcher button').forEach(b => {
+    b.classList.toggle('active', b.dataset.themeSet === name);
+  });
+  syncCustomInputs();
+  saveThemeSettings();
+  if (name === THEMES.CUSTOM && !opts.silent) openThemeModal();
+}
+
+function syncCustomInputs() {
+  const c = themeState.custom;
+  const elBg = document.getElementById('colorBg');
+  const elBgAlt = document.getElementById('colorBgAlt');
+  const elText = document.getElementById('colorText');
+  const elAccent = document.getElementById('colorAccent');
+  if (elBg) elBg.value = c.bg;
+  if (elBgAlt) elBgAlt.value = c.bgAlt;
+  if (elText) elText.value = c.text;
+  if (elAccent) elAccent.value = c.accent;
+  document.querySelectorAll('#palettePresets button').forEach(b => {
+    b.classList.toggle('active', b.dataset.palette === findPaletteKey(c));
+  });
+}
+
+function findPaletteKey(c) {
+  for (const [k,p] of Object.entries(PALETTES)) {
+    if (p.bg === c.bg && p.bgAlt === c.bgAlt && p.text === c.text && p.accent === c.accent) return k;
+  }
+  return null;
+}
+
+document.getElementById('themeSwitcher').addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  setTheme(btn.dataset.themeSet);
+});
+
+/* ====== 2. МОДАЛКА КАСТОМНОЙ ТЕМЫ ====== */
+const themeModal = document.getElementById('themeModal');
+function openThemeModal() { syncCustomInputs(); themeModal.classList.add('visible'); }
+function closeThemeModal() { themeModal.classList.remove('visible'); }
+
+document.getElementById('tmClose').addEventListener('click', closeThemeModal);
+themeModal.addEventListener('click', e => { if (e.target === themeModal) closeThemeModal(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && themeModal.classList.contains('visible')) closeThemeModal();
+});
+
+document.getElementById('customBgUpload').addEventListener('change', e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) { alert('Файл слишком большой. Максимум 5 МБ.'); return; }
+  const reader = new FileReader();
+  reader.onload = ev => {
+    themeState.custom.image = ev.target.result;
+    if (themeState.current !== THEMES.CUSTOM) setTheme(THEMES.CUSTOM, { silent: true });
+    else applyCustomVars();
+    saveThemeSettings();
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById('removeCustomBg').addEventListener('click', () => {
+  themeState.custom.image = '';
+  if (themeState.current === THEMES.CUSTOM) applyCustomVars();
+  saveThemeSettings();
+  document.getElementById('customBgUpload').value = '';
+});
+
+(function buildPalettes() {
+  const wrap = document.getElementById('palettePresets');
+  Object.entries(PALETTES).forEach(([key,p]) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.dataset.palette = key;
+    btn.dataset.label = p.label;
+    btn.title = p.label;
+    btn.style.background = `linear-gradient(135deg, ${p.accent} 0%, ${p.bg} 60%, ${p.bgAlt} 100%)`;
+    btn.addEventListener('click', () => {
+      themeState.custom = { bg:p.bg, bgAlt:p.bgAlt, text:p.text, accent:p.accent, image: themeState.custom.image };
+      if (themeState.current !== THEMES.CUSTOM) setTheme(THEMES.CUSTOM, { silent: true });
+      else applyCustomVars();
+      syncCustomInputs();
+      saveThemeSettings();
+    });
+    wrap.appendChild(btn);
+  });
+})();
+
+['colorBg','colorBgAlt','colorText','colorAccent'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('input', () => {
+    themeState.custom.bg = document.getElementById('colorBg').value;
+    themeState.custom.bgAlt = document.getElementById('colorBgAlt').value;
+    themeState.custom.text = document.getElementById('colorText').value;
+    themeState.custom.accent = document.getElementById('colorAccent').value;
+    if (themeState.current !== THEMES.CUSTOM) setTheme(THEMES.CUSTOM, { silent: true });
+    else applyCustomVars();
+    syncCustomInputs();
+  });
+  el.addEventListener('change', saveThemeSettings);
+});
+
+document.getElementById('tmReset').addEventListener('click', () => {
+  themeState.custom = { ...DEFAULT_CUSTOM };
+  if (themeState.current === THEMES.CUSTOM) applyCustomVars();
+  syncCustomInputs();
+  saveThemeSettings();
+});
+
+document.getElementById('tmApply').addEventListener('click', () => {
+  setTheme(THEMES.CUSTOM, { silent: true });
+  saveThemeSettings();
+  closeThemeModal();
+});
+
+loadThemeSettings();
+setTheme(themeState.current, { silent: true });
+
+/* ====== 3. ДАННЫЕ О ВООРУЖЕНИИ ====== */
+const weapons = [
+  { id:'gsh-301', category:'Стрелково-пушечное', name:'ГШ-301', short:'30-мм встроенная авиационная пушка', photo:'',
+    info:{'Тип':'Одноствольная автоматическая пушка','Калибр':'30 мм','Темп стрельбы':'1500–1800 выстр/мин','Боезапас':'180 снарядов','Применение':'Поражение воздушных и легкобронированных наземных целей'} },
+  { id:'sppu-22', category:'Стрелково-пушечное', name:'СППУ-22-1', short:'Подвесной пушечный контейнер', photo:'',
+    info:{'Тип':'Подвесная пушечная установка','Калибр':'23 мм','Орудие':'ГШ-23Л','Боезапас':'до 260 снарядов','Применение':'Поражение легкобронированных наземных и воздушных целей'} },
+  { id:'sppu-22-4', category:'Стрелково-пушечное', name:'СППУ-22-4', short:'Подвесной пушечный контейнер', photo:'',
+    info:{'Тип':'Подвесная пушечная установка','Калибр':'23 мм','Орудие':'ГШ-23Л','Применение':'Поражение наземных и воздушных целей','Носители':'Су-34'} },
+
+  { id:'r-27', category:'Ракеты «воздух–воздух»', name:'Р-27', short:'УР средней дальности (семейство)',
+    photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vympel_R-27.jpg/640px-Vympel_R-27.jpg',
+    info:{'Тип':'Ракета класса «воздух–воздух»','Дальность':'до 80 км (ЭР — до 130 км)','Модификации':'Р-27Р, Р-27Т, Р-27ЭР, Р-27ЭТ','Система наведения':'Радиолокационная / ИК / комбинированная','Боевая часть':'Осколочно-фугасная'} },
+  { id:'r-60m', category:'Ракеты «воздух–воздух»', name:'Р-60М', short:'УР малой дальности', photo:'',
+    info:{'Тип':'Ракета класса «воздух–воздух»','Дальность':'до 10 км','Система наведения':'Инфракрасная','Боевая часть':'Осколочно-фугасная','Применение':'Ближний воздушный бой'} },
+  { id:'r-73', category:'Ракеты «воздух–воздух»', name:'Р-73', short:'УР малой дальности',
+    photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Vympel_R-73.jpg/640px-Vympel_R-73.jpg',
+    info:{'Тип':'Ракета класса «воздух–воздух»','Дальность':'до 30 км','Система наведения':'Инфракрасная (тепловая)','Боевая часть':'Осколочно-фугасная','Особенность':'Высокая манёвренность, всеракурсный захват'} },
+  { id:'r-74m', category:'Ракеты «воздух–воздух»', name:'Р-74М', short:'УР малой дальности нового поколения', photo:'',
+    info:{'Тип':'Ракета класса «воздух–воздух»','Дальность':'до 40 км','Система наведения':'ИК всеракурсная','Боевая часть':'Осколочно-фугасная','Особенность':'Улучшенная помехозащищённость'} },
+  { id:'r-77', category:'Ракеты «воздух–воздух»', name:'Р-77 (РВВ-АЕ)', short:'УР средней дальности',
+    photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/R-77_Missile.jpg/640px-R-77_Missile.jpg',
+    info:{'Тип':'Ракета класса «воздух–воздух»','Дальность':'до 110 км','Система наведения':'Инерциальная + активная радиолокационная','Боевая часть':'Осколочно-фугасная','Носители':'Су-34, Су-35, МиГ-29 и др.'} },
+  { id:'r-37m', category:'Ракеты «воздух–воздух»', name:'Р-37М', short:'УР большой дальности', photo:'',
+    info:{'Тип':'Ракета класса «воздух–воздух»','Дальность':'до 300 км','Скорость':'до 6 Маха','Система наведения':'Инерциальная + активная радиолокационная','Применение':'Поражение ДРЛО, бомбардировщиков, истребителей'} },
+
+  { id:'kh-25', category:'Ракеты «воздух–поверхность»', name:'Х-25МЛ', short:'УР малой дальности с лазерной ГСН', photo:'',
+    info:{'Тип':'Ракета класса «воздух–поверхность»','Дальность':'до 10 км','Система наведения':'Лазерная','Боевая часть':'Осколочно-фугасная','Применение':'Поражение малоразмерных целей'} },
+  { id:'kh-29', category:'Ракеты «воздух–поверхность»', name:'Х-29Л / Х-29Т', short:'УР малой дальности',
+    photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Kh-29_missile.jpg/640px-Kh-29_missile.jpg',
+    info:{'Тип':'Ракета класса «воздух–поверхность»','Дальность':'до 30 км','Система наведения':'Лазерная (Л) / телевизионная (Т)','Боевая часть':'Проникающая или осколочно-фугасная','Применение':'Поражение укреплённых целей'} },
+  { id:'kh-31', category:'Ракеты «воздух–поверхность»', name:'Х-31А / Х-31П', short:'Сверхзвуковая противокорабельная / противорадиолокационная',
+    photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Kh-31_missile.jpg/640px-Kh-31_missile.jpg',
+    info:{'Тип':'Ракета класса «воздух–поверхность»','Дальность':'до 110 км','Скорость':'до 3,5 Маха','Система наведения':'Активная (А) / пассивная (П) радиолокационная','Применение':'Поражение кораблей / РЛС ПВО'} },
+  { id:'kh-15s', category:'Ракеты «воздух–поверхность»', name:'Х-15С', short:'Аэробаллистическая противокорабельная', photo:'',
+    info:{'Тип':'Аэробаллистическая ракета','Дальность':'до 300 км','Скорость':'до 5 Маха','Система наведения':'Инерциальная + активная радиолокационная','Применение':'Поражение крупных надводных кораблей'} },
+  { id:'kh-32', category:'Ракеты «воздух–поверхность»', name:'Х-32', short:'Сверхзвуковая противокорабельная', photo:'',
+    info:{'Тип':'Противокорабельная ракета','Дальность':'до 1000 км','Скорость':'до 4 Маха','Система наведения':'Инерциальная + активная радиолокационная','Применение':'Поражение крупных надводных целей'} },
+  { id:'kh-35', category:'Ракеты «воздух–поверхность»', name:'Х-35У', short:'Противокорабельная ракета', photo:'',
+    info:{'Тип':'Противокорабельная ракета','Дальность':'до 260 км','Скорость':'дозвуковая, ~0,8 Маха','Система наведения':'Инерциальная + активная радиолокационная','Применение':'Поражение надводных кораблей'} },
+  { id:'kh-38', category:'Ракеты «воздух–поверхность»', name:'Х-38', short:'Многоцелевая УР', photo:'',
+    info:{'Тип':'Многоцелевая ракета','Дальность':'до 40 км','Система наведения':'Лазерная / ИК / радиолокационная / спутниковая','Модификации':'Х-38МЛЭ, Х-38МАЭ, Х-38МТЭ, Х-38МКЭ','Применение':'Поражение широкого спектра наземных целей'} },
+  { id:'kh-41', category:'Ракеты «воздух–поверхность»', name:'Х-41', short:'Сверхзвуковая противокорабельная', photo:'',
+    info:{'Тип':'Противокорабельная ракета','Дальность':'до 250 км','Скорость':'до 3 Маха','Система наведения':'Инерциальная + активная радиолокационная','Применение':'Поражение крупных надводных кораблей'} },
+  { id:'kh-58', category:'Ракеты «воздух–поверхность»', name:'Х-58УШКЭ', short:'Противорадиолокационная ракета', photo:'',
+    info:{'Тип':'Противорадиолокационная ракета','Дальность':'до 250 км','Скорость':'до 4 Маха','Система наведения':'Пассивная радиолокационная','Применение':'Уничтожение РЛС ПВО противника'} },
+  { id:'kh-59', category:'Ракеты «воздух–поверхность»', name:'Х-59М', short:'УР средней дальности', photo:'',
+    info:{'Тип':'Ракета класса «воздух–поверхность»','Дальность':'до 285 км','Система наведения':'Инерциальная + телевизионная / лазерная','Боевая часть':'Проникающая','Применение':'Поражение стационарных наземных целей'} },
+  { id:'kh-59mk2', category:'Ракеты «воздух–поверхность»', name:'Х-59МК2', short:'УР повышенной дальности', photo:'',
+    info:{'Тип':'Ракета класса «воздух–поверхность»','Дальность':'до 290 км','Система наведения':'Инерциальная + активная радиолокационная','Боевая часть':'Проникающая','Применение':'Высокоточное поражение наземных целей'} },
+  { id:'kh-65', category:'Ракеты «воздух–поверхность»', name:'Х-65', short:'Крылатая ракета «воздух–поверхность»', photo:'',
+    info:{'Тип':'Крылатая ракета','Дальность':'до 600 км','Система наведения':'Инерциальная + радиолокационная','Боевая часть':'Осколочно-фугасная / проникающая','Применение':'Поражение стратегических наземных целей'} },
+  { id:'kh-101', category:'Ракеты «воздух–поверхность»', name:'Х-101 / Х-102', short:'Стратегическая крылатая ракета', photo:'',
+    info:{'Тип':'Стратегическая крылатая ракета','Дальность':'до 5500 км','Система наведения':'Инерциальная + спутниковая + оптико-электронная','Боевая часть':'Проникающая / осколочно-фугасная','Применение':'Поражение особо важных стационарных целей'} },
+  { id:'kh-47m2', category:'Ракеты «воздух–поверхность»', name:'Х-47М2 «Кинжал»', short:'Гиперзвуковая аэробаллистическая ракета', photo:'',
+    info:{'Тип':'Гиперзвуковая ракета','Скорость':'до 10 Маха','Дальность':'до 2000 км','Носители':'Су-34, МиГ-31К','Применение':'Поражение особо важных целей'} },
+  { id:'grom-e1', category:'Ракеты «воздух–поверхность»', name:'Гром-Э1', short:'Управляемая ракета «воздух–поверхность»', photo:'',
+    info:{'Тип':'Управляемая ракета','Дальность':'до 120 км','Система наведения':'Инерциальная + спутниковая','Боевая часть':'Проникающая','Применение':'Поражение наземных целей'} },
+  { id:'grom-e2', category:'Ракеты «воздух–поверхность»', name:'Гром-Э2', short:'Управляемая планирующая ракета', photo:'',
+    info:{'Тип':'Планирующая управляемая ракета','Дальность':'до 120 км','Система наведения':'Инерциальная + спутниковая','Боевая часть':'Осколочно-фугасная','Применение':'Удары вне зоны ПВО'} },
+
+  { id:'s-5', category:'Неуправляемые ракеты', name:'С-5', short:'57-мм НАР', photo:'',
+    info:{'Тип':'Неуправляемая авиационная ракета','Калибр':'57 мм','Дальность':'до 3 км','Боевые части':'Осколочная, кумулятивная','Применение':'Поражение легкобронированных целей'} },
+  { id:'s-8', category:'Неуправляемые ракеты', name:'С-8', short:'80-мм НАР (семейство)', photo:'pic_1358524715.jpg',
+    info:{'Тип':'Неуправляемая авиационная ракета','Калибр':'80 мм','Дальность':'до 4 км','Боевые части':'Осколочная, кумулятивная, фугасная, объёмно-детонирующая','Применение':'Поражение площадных и легкобронированных целей'} },
+  { id:'s-13', category:'Неуправляемые ракеты', name:'С-13', short:'122-мм НАР', photo:'С-13.jpg',
+    info:{'Тип':'Неуправляемая авиационная ракета','Калибр':'122 мм','Дальность':'до 6 км','Боевые части':'Осколочно-фугасная, проникающая','Применение':'Поражение укреплённых целей и техники'} },
+  { id:'s-24', category:'Неуправляемые ракеты', name:'С-24', short:'240-мм НАР', photo:'',
+    info:{'Тип':'Неуправляемая авиационная ракета','Калибр':'240 мм','Дальность':'до 5 км','Боевая часть':'Осколочно-фугасная','Применение':'Поражение укреплённых целей'} },
+  { id:'s-25', category:'Неуправляемые ракеты', name:'С-25', short:'266-мм НАР', photo:'C-25_missile.jpg',
+    info:{'Тип':'Неуправляемая авиационная ракета','Калибр':'266 мм','Дальность':'до 10 км','Боевые части':'Осколочно-фугасная, проникающая','Применение':'Поражение особо прочных целей'} },
+
+  { id:'fab-100', category:'Свободнопадающие бомбы', name:'ФАБ-100', short:'Фугасная авиабомба 100 кг', photo:'',
+    info:{'Тип':'Авиационная бомба','Калибр':'100 кг','Боевая часть':'Фугасная','Применение':'Поражение живой силы и легкобронированной техники'} },
+  { id:'fab-250', category:'Свободнопадающие бомбы', name:'ФАБ-250', short:'Фугасная авиабомба 250 кг', photo:'FAB-250-M62.jpg',
+    info:{'Тип':'Авиационная бомба','Калибр':'250 кг','Боевая часть':'Фугасная','Применение':'Поражение техники, укреплений, живой силы'} },
+  { id:'fab-250m62', category:'Свободнопадающие бомбы', name:'ФАБ-250 М-62', short:'Фугасная авиабомба 250 кг', photo:'',
+    info:{'Тип':'Авиационная бомба','Калибр':'250 кг','Боевая часть':'Фугасная','Применение':'Поражение техники, укреплений'} },
+  { id:'fab-500', category:'Свободнопадающие бомбы', name:'ФАБ-500', short:'Фугасная авиабомба 500 кг', photo:'23342.jpg',
+    info:{'Тип':'Авиационная бомба','Калибр':'500 кг','Боевая часть':'Фугасная','Применение':'Поражение укреплённых целей, техники, живой силы'} },
+  { id:'fab-500m62', category:'Свободнопадающие бомбы', name:'ФАБ-500 М-62', short:'Фугасная авиабомба 500 кг', photo:'',
+    info:{'Тип':'Авиационная бомба','Калибр':'500 кг','Боевая часть':'Фугасная','Применение':'Поражение укреплённых целей'} },
+  { id:'fab-500shn', category:'Свободнопадающие бомбы', name:'ФАБ-500ШН', short:'Фугасная авиабомба с насадкой', photo:'',
+    info:{'Тип':'Авиационная бомба','Калибр':'500 кг','Боевая часть':'Фугасная','Особенность':'Насадка для подрыва при встрече с преградой','Применение':'Поражение зданий и укреплений'} },
+  { id:'fab-1500', category:'Свободнопадающие бомбы', name:'ФАБ-1500', short:'Фугасная авиабомба 1500 кг', photo:'snimok-ekrana-2024-05-06-v-140156_c7c.png',
+    info:{'Тип':'Авиационная бомба','Калибр':'1500 кг','Боевая часть':'Фугасная','Применение':'Поражение особо прочных заглублённых целей'} },
+  { id:'ofab-100', category:'Свободнопадающие бомбы', name:'ОФАБ-100-120', short:'Осколочно-фугасная авиабомба', photo:'100-120.jpg',
+    info:{'Тип':'Авиационная бомба','Калибр':'100 кг','Боевая часть':'Осколочно-фугасная','Применение':'Поражение живой силы в укрытиях и зданиях'} },
+  { id:'ofab-250', category:'Свободнопадающие бомбы', name:'ОФАБ-250-270', short:'Осколочно-фугасная авиабомба', photo:'250-270.jpg',
+    info:{'Тип':'Авиационная бомба','Калибр':'250 кг','Боевая часть':'Осколочно-фугасная','Применение':'Поражение живой силы и небронированной техники'} },
+  { id:'ofab-500', category:'Свободнопадающие бомбы', name:'ОФАБ-500У', short:'Объёмно-детонирующая авиабомба', photo:'image004.jpg',
+    info:{'Тип':'Авиабомба объёмного взрыва','Калибр':'500 кг','Боевая часть':'Объёмно-детонирующая','Применение':'Поражение живой силы и техники на открытой местности'} },
+  { id:'ofab-500shr', category:'Свободнопадающие бомбы', name:'ОФАБ-500ШР', short:'Осколочно-фугасная авиабомба', photo:'',
+    info:{'Тип':'Авиационная бомба','Калибр':'500 кг','Боевая часть':'Осколочно-фугасная','Применение':'Поражение живой силы и техники'} },
+  { id:'odab-500pm', category:'Свободнопадающие бомбы', name:'ОДАБ-500ПМ', short:'Объёмно-детонирующая авиабомба', photo:'',
+    info:{'Тип':'Авиабомба объёмного взрыва','Калибр':'500 кг','Боевая часть':'Объёмно-детонирующая','Применение':'Поражение живой силы в укрытиях и на открытой местности'} },
+  { id:'betab', category:'Свободнопадающие бомбы', name:'БЕТАБ-500ШП', short:'Бетонобойная авиабомба', photo:'72022-1_9.jpg',
+    info:{'Тип':'Бетонобойная авиабомба','Калибр':'500 кг','Боевая часть':'Проникающая','Применение':'Разрушение взлётно-посадочных полос, бетонных укрытий'} },
+  { id:'zab-500', category:'Свободнопадающие бомбы', name:'ЗАБ-500', short:'Зажигательная авиабомба', photo:'',
+    info:{'Тип':'Зажигательная авиабомба','Калибр':'500 кг','Боевая часть':'Зажигательная','Применение':'Поражение легковоспламеняющихся объектов'} },
+  { id:'zb-500shm', category:'Свободнопадающие бомбы', name:'ЗБ-500ШМ', short:'Зажигательный бак', photo:'',
+    info:{'Тип':'Зажигательный бак','Калибр':'500 кг','Боевая часть':'Зажигательная смесь','Применение':'Поражение легковоспламеняющихся объектов'} },
+  { id:'p-50t', category:'Свободнопадающие бомбы', name:'П-50Т', short:'Зажигательная авиабомба', photo:'images.jpg',
+    info:{'Тип':'Зажигательная авиабомба','Калибр':'500 кг','Боевая часть':'Зажигательная','Применение':'Поражение легковоспламеняющихся объектов'} },
+  { id:'rbk-500', category:'Свободнопадающие бомбы', name:'РБК-500 СПБЭ-Д', short:'Кассетная бомба с самоприцеливающимися боевыми элементами', photo:'rbk-500.jpg',
+    info:{'Тип':'Кассетная авиабомба','Калибр':'500 кг','Боевая часть':'Самоприцеливающиеся боевые элементы','Применение':'Поражение бронетанковой техники'} },
+  { id:'rbk-500-ao', category:'Свободнопадающие бомбы', name:'РБК-500 АО-2,5РТМ', short:'Кассетная бомба с осколочными элементами', photo:'',
+    info:{'Тип':'Кассетная авиабомба','Калибр':'500 кг','Боевая часть':'Осколочные боевые элементы','Применение':'Поражение живой силы и небронированной техники'} },
+  { id:'kmgu', category:'Свободнопадающие бомбы', name:'КМГУ', short:'Контейнер малогабаритных грузов', photo:'kmgu-2.jpg',
+    info:{'Тип':'Контейнер для мин и малогабаритных грузов','Калибр':'—','Назначение':'Постановка мин, сброс малогабаритных боеприпасов','Применение':'Минирование местности'} },
+
+  { id:'kab-250l', category:'Управляемые бомбы', name:'КАБ-250Л', short:'Корректируемая авиабомба с лазерной ГСН', photo:'',
+    info:{'Тип':'Управляемая авиабомба','Калибр':'250 кг','Система наведения':'Лазерная','Применение':'Высокоточное поражение наземных целей'} },
+  { id:'kab-500kr', category:'Управляемые бомбы', name:'КАБ-500Кр', short:'Корректируемая авиабомба с ТВ ГСН', photo:'images-_16_.jpg',
+    info:{'Тип':'Управляемая авиабомба','Калибр':'500 кг','Система наведения':'Телевизионная','Применение':'Высокоточное поражение наземных целей'} },
+  { id:'kab-500l', category:'Управляемые бомбы', name:'КАБ-500Л', short:'Корректируемая авиабомба с лазерной ГСН', photo:'images-_15_.jpg',
+    info:{'Тип':'Управляемая авиабомба','Калибр':'500 кг','Система наведения':'Лазерная','Применение':'Высокоточное поражение наземных целей'} },
+  { id:'kab-500s', category:'Управляемые бомбы', name:'КАБ-500С', short:'Корректируемая авиабомба со спутниковой ГСН', photo:'',
+    info:{'Тип':'Управляемая авиабомба','Калибр':'500 кг','Система наведения':'Спутниковая (ГЛОНАСС/GPS)','Применение':'Высокоточное поражение наземных целей по координатам'} },
+  { id:'kab-500od', category:'Управляемые бомбы', name:'КАБ-500ОД', short:'Объёмно-детонирующая корректируемая бомба', photo:'',
+    info:{'Тип':'Управляемая авиабомба','Калибр':'500 кг','Система наведения':'Спутниковая / лазерная','Боевая часть':'Объёмно-детонирующая','Применение':'Поражение живой силы в укрытиях'} },
+  { id:'kab-1500kr', category:'Управляемые бомбы', name:'КАБ-1500Кр', short:'Тяжёлая корректируемая бомба с ТВ ГСН', photo:'images_1.jpg',
+    info:{'Тип':'Управляемая авиабомба','Калибр':'1500 кг','Система наведения':'Телевизионная','Применение':'Поражение особо прочных заглублённых целей'} },
+  { id:'kab-1500l', category:'Управляемые бомбы', name:'КАБ-1500Л', short:'Тяжёлая корректируемая бомба с лазерной ГСН', photo:'36443634.jpg',
+    info:{'Тип':'Управляемая авиабомба','Калибр':'1500 кг','Система наведения':'Лазерная','Применение':'Поражение особо прочных заглублённых целей'} },
+  { id:'upab-500', category:'Управляемые бомбы', name:'УПАБ-500', short:'Управляемая планирующая авиабомба', photo:'',
+    info:{'Тип':'Управляемая планирующая авиабомба','Калибр':'500 кг','Дальность':'до 100 км','Система наведения':'Инерциальная + спутниковая','Применение':'Удары вне зоны ПВО'} },
+  { id:'upab-1500b', category:'Управляемые бомбы', name:'УПАБ-1500Б', short:'Тяжёлая планирующая авиабомба', photo:'',
+    info:{'Тип':'Управляемая планирующая авиабомба','Калибр':'1500 кг','Дальность':'до 100 км','Система наведения':'Инерциальная + спутниковая','Применение':'Поражение особо важных целей вне зоны ПВО'} },
+  { id:'fab-500t-umpk', category:'Управляемые бомбы', name:'ФАБ-500Т с УМПК', short:'Планирующая бомба с модулем коррекции', photo:'FAB-500T_with_a_UMPK_kit.png',
+    info:{'Тип':'Управляемая планирующая бомба','Калибр':'500 кг','Дальность':'до 65–100 км','Система наведения':'Инерциальная + спутниковая','Применение':'Удары вне зоны ПВО противника'} },
+  { id:'fab-250-umpk', category:'Управляемые бомбы', name:'ФАБ-250 с УМПК', short:'Планирующая бомба с УМПК', photo:'',
+    info:{'Тип':'Управляемая планирующая бомба','Калибр':'250 кг','Дальность':'до 65–100 км','Система наведения':'Инерциальная + спутниковая','Применение':'Удары вне зоны ПВО'} },
+  { id:'fab-1500-umpk', category:'Управляемые бомбы', name:'ФАБ-1500 с УМПК', short:'Тяжёлая планирующая бомба с УМПК', photo:'',
+    info:{'Тип':'Управляемая планирующая бомба','Калибр':'1500 кг','Дальность':'до 65–100 км','Система наведения':'Инерциальная + спутниковая','Применение':'Поражение особо прочных целей вне зоны ПВО'} },
+  { id:'d-30sn', category:'Управляемые бомбы', name:'Д-30СН (УМПБ)', short:'Универсальный межвидовой планирующий боеприпас', photo:'d30sn-7725.jpeg',
+    info:{'Тип':'Планирующий боеприпас','Калибр':'~250–300 кг','Дальность':'до 90–120 км','Система наведения':'Инерциальная + спутниковая','Носители':'Су-34, Су-30СМ, Су-35'} },
+
+  { id:'ukr-rt', category:'Подвесные контейнеры', name:'УКР-РТ «Сыч»', short:'Разведывательный контейнер', photo:'img_20260607_153014.jpg',
+    info:{'Тип':'Подвесной разведывательный контейнер','Назначение':'Оптико-электронная, радиолокационная и радиотехническая разведка','Передача данных':'В реальном времени по защищённому каналу','Носители':'Су-34'} },
+  { id:'sap-518', category:'Подвесные контейнеры', name:'САП-518', short:'Станция активных помех', photo:'',
+    info:{'Тип':'Станция активных помех','Назначение':'Радиоэлектронное подавление РЛС противника','Носители':'Су-34'} },
+  { id:'khibiny', category:'Подвесные контейнеры', name:'УКР «Хибины»', short:'Комплекс РЭБ', photo:'',
+    info:{'Тип':'Комплекс радиоэлектронной борьбы','Назначение':'Подавление РЛС и головок самонаведения ракет','Носители':'Су-34'} }
+];
+
+/* ====== 4. ПИЛОТЫ ====== */
+const pilots = [
+  { name:'Анатолий Иванов', rank:'Заслуженный лётчик-испытатель', badge:'Первый полёт Т-10В-1', desc:'Выполнил первый полёт прототипа Т-10В-1 13 апреля 1990 года.' },
+  { name:'Сергей Богдан', rank:'Заслуженный лётчик-испытатель РФ', badge:'Испытания Су-34', desc:'Один из лётчиков, проводивших испытания Су-34 и его модификаций.' },
+  { name:'Николай Куимов', rank:'Лётчик-испытатель', badge:'Испытания', desc:'Участвовал в испытаниях бортового комплекса и вооружения Су-34.' },
+  { name:'Игорь Маликов', rank:'Лётчик-испытатель', badge:'Испытания', desc:'Внёс вклад в отработку систем управления вооружением.' },
+  { name:'Роман Кондратьев', rank:'Военный лётчик', badge:'Боевое применение', desc:'Участник боевых действий в составе экипажей Су-34.' },
+  { name:'Максим Стефанов', rank:'Штурман-оператор', badge:'Боевое применение', desc:'Специалист по применению высокоточного вооружения.' },
+  { name:'Алексей Хрулёв', rank:'Военный лётчик', badge:'Сирия', desc:'Участник операции в Сирии в составе авиагруппы ВКС России.' },
+  { name:'Дмитрий Литвинов', rank:'Штурман', badge:'Сирия', desc:'Обеспечивал наведение управляемого вооружения в Сирии.' },
+  { name:'Андрей Краснопёров', rank:'Военный лётчик', badge:'СВО', desc:'Выполнял задачи по подавлению ПВО и ударам по наземным целям.' },
+  { name:'Виктор Дудин', rank:'Штурман-оператор', badge:'СВО', desc:'Специалист по применению планирующих боеприпасов.' },
+  { name:'Павел Крылов', rank:'Военный лётчик', badge:'СВО', desc:'Выполнял задачи по поражению бронетехники противника.' },
+  { name:'Илья Гордеев', rank:'Штурман', badge:'СВО', desc:'Обеспечивал работу прицельного комплекса «Платан».' },
+  { name:'Сергей Морозов', rank:'Военный лётчик', badge:'Герой России', desc:'Удостоен звания Героя России за мужество и героизм.' },
+  { name:'Олег Савельев', rank:'Штурман-оператор', badge:'Награждён', desc:'Награждён орденом Мужества за боевые заслуги.' },
+  { name:'Кирилл Андреев', rank:'Военный лётчик', badge:'Награждён', desc:'Награждён орденом «За военные заслуги».' },
+  { name:'Артём Белов', rank:'Штурман', badge:'Награждён', desc:'Награждён медалью «За отвагу» за личное мужество в бою.' }
+];
+
+/* ====== 5. ВИДЕО ====== */
+const videos = [
+  { id:'dQw4w9WgXcQ', cat:'review', title:'Обзор Су-34: конструкция и возможности', meta:'Обзорный ролик', desc:'Разбор конструкции, ТТХ и боевых возможностей фронтового бомбардировщика.' },
+  { id:'dQw4w9WgXcQ', cat:'doc', title:'Документальный фильм о Су-34', meta:'Документальный', desc:'История создания, испытания и боевое применение машины.' },
+  { id:'dQw4w9WgXcQ', cat:'combat', title:'Су-34 в боевых условиях', meta:'Боевое применение', desc:'Кадры боевой работы экипажей Су-34.' },
+  { id:'dQw4w9WgXcQ', cat:'tech', title:'Технический разбор вооружения Су-34', meta:'Технический обзор', desc:'Детальный разбор номенклатуры вооружения самолёта.' },
+  { id:'dQw4w9WgXcQ', cat:'history', title:'История создания Су-34', meta:'Исторический', desc:'От проекта Т-10В до серийного производства.' },
+  { id:'dQw4w9WgXcQ', cat:'review', title:'Су-34М: что изменилось', meta:'Обзор', desc:'Сравнение базовой версии и модернизированного Су-34М.' },
+  { id:'dQw4w9WgXcQ', cat:'combat', title:'Применение УМПК с Су-34', meta:'Боевое применение', desc:'Разбор тактики применения планирующих боеприпасов.' },
+  { id:'dQw4w9WgXcQ', cat:'tech', title:'РЛС «Ш-141»: возможности', meta:'Технический обзор', desc:'Обзор бортовой радиолокационной станции.' },
+  { id:'dQw4w9WgXcQ', cat:'doc', title:'Су-34: полёт и испытания', meta:'Документальный', desc:'Кадры испытательных полётов и работы экипажа.' },
+  { id:'dQw4w9WgXcQ', cat:'review', title:'Сравнение Су-34 и аналогов', meta:'Обзор', desc:'Сопоставление Су-34 с зарубежными ударными машинами.' },
+  { id:'dQw4w9WgXcQ', cat:'history', title:'Су-34 в Сирии: хроника', meta:'Исторический', desc:'Хроника боевого применения в Сирии.' },
+  { id:'dQw4w9WgXcQ', cat:'tech', title:'Комплекс РЭБ «Хибины»', meta:'Технический обзор', desc:'Разбор станции радиоэлектронной борьбы.' }
+];
+
+/* ====== 6. РЕНДЕР ВООРУЖЕНИЯ ====== */
+const categories = {};
+weapons.forEach(w => {
+  if (!categories[w.category]) categories[w.category] = [];
+  categories[w.category].push(w);
+});
+
+const CATEGORY_ORDER = [
+  'Стрелково-пушечное',
+  'Ракеты «воздух–воздух»',
+  'Ракеты «воздух–поверхность»',
+  'Неуправляемые ракеты',
+  'Свободнопадающие бомбы',
+  'Управляемые бомбы',
+  'Подвесные контейнеры'
+];
+
+const weaponCategories = document.getElementById('weapon-categories');
+const weaponDetail = document.getElementById('weapon-detail');
+const weaponInfo = document.getElementById('weapon-info');
+const weaponPhoto = document.getElementById('weapon-photo');
+const weaponCount = document.getElementById('weapon-count');
+weaponCount.textContent = weapons.length;
+
+function placeholderSVG(name) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="260">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a2332"/><stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient></defs>
+    <rect width="400" height="260" fill="url(#g)"/>
+    <text x="50%" y="45%" fill="#60a5fa" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle">${name}</text>
+    <text x="50%" y="60%" fill="#8b949e" font-family="Arial" font-size="13" text-anchor="middle">Фото недоступно</text>
+  </svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+CATEGORY_ORDER.forEach(cat => {
+  if (!categories[cat]) return;
+  const catDiv = document.createElement('div');
+  catDiv.className = 'weapon-category';
+  catDiv.innerHTML = `<h3>${cat}</h3>`;
+  const listDiv = document.createElement('div');
+  listDiv.className = 'weapon-list';
+
+  categories[cat].forEach(w => {
+    const card = document.createElement('div');
+    card.className = 'weapon-card';
+    card.dataset.id = w.id;
+    card.dataset.search = (w.name + ' ' + w.short + ' ' + w.category + ' ' + Object.values(w.info).join(' ')).toLowerCase();
+
+    const img = document.createElement('img');
+    img.className = 'weapon-thumb';
+    img.alt = w.name;
+    img.src = w.photo || placeholderSVG(w.name);
+    img.onerror = () => { img.src = placeholderSVG(w.name); };
+
+    const h3 = document.createElement('h3');
+    h3.textContent = w.name;
+    const p = document.createElement('p');
+    p.textContent = w.short;
+
+    card.appendChild(img);
+    card.appendChild(h3);
+    card.appendChild(p);
+    card.addEventListener('click', () => showWeapon(w.id));
+    listDiv.appendChild(card);
+  });
+
+  catDiv.appendChild(listDiv);
+  weaponCategories.appendChild(catDiv);
+});
+
+/* === ИНИЦИАЛИЗАЦИЯ ФИЛЬТРА === */
+function initWeaponFilters() {
+  const filterContainer = document.getElementById('weaponFilters');
+  if (!filterContainer) return;
+  
+  const cats = ['Все', ...CATEGORY_ORDER];
+  
+  cats.forEach((cat, index) => {
+    const label = document.createElement('label');
+    label.className = 'filter-label';
+    label.innerHTML = `
+      <input type="checkbox" value="${cat}" ${index === 0 ? 'checked' : ''}>
+      <span class="filter-box"></span>
+      <span class="filter-text">${cat}</span>
+    `;
+    filterContainer.appendChild(label);
+  });
+
+  const checkboxes = filterContainer.querySelectorAll('input[type="checkbox"]');
+  const allCheckbox = checkboxes[0];
+
+  filterContainer.addEventListener('change', e => {
+    if (!e.target.matches('input[type="checkbox"]')) return;
+    const isAll = e.target === allCheckbox;
+
+    if (isAll) {
+      if (allCheckbox.checked) {
+        checkboxes.forEach(cb => { if (cb !== allCheckbox) cb.checked = false; });
+      }
+    } else {
+      if (e.target.checked) allCheckbox.checked = false;
+      const anyChecked = Array.from(checkboxes).some((cb, i) => i > 0 && cb.checked);
+      if (!anyChecked) allCheckbox.checked = true;
+    }
+    applyWeaponFilter();
+  });
+}
+
+function applyWeaponFilter() {
+  const checkboxes = document.querySelectorAll('#weaponFilters input[type="checkbox"]');
+  const selected = Array.from(checkboxes).filter(cb => cb.checked && cb.value !== 'Все').map(cb => cb.value);
+  const showAll = document.getElementById('weaponFilters').querySelector('input[value="Все"]').checked;
+  
+  let visibleCount = 0;
+
+  document.querySelectorAll('.weapon-category').forEach(catDiv => {
+    const catName = catDiv.querySelector('h3').textContent.trim();
+    const isVisible = showAll || selected.includes(catName);
+    
+    catDiv.style.display = isVisible ? '' : 'none';
+    if (isVisible) {
+      visibleCount += catDiv.querySelectorAll('.weapon-card').length;
+    }
+  });
+  
+  document.getElementById('weapon-count').textContent = visibleCount;
+}
+
+initWeaponFilters();
+
+/* === ОСТАЛЬНЫЕ ФУНКЦИИ === */
+function showWeapon(id) {
+  const w = weapons.find(x => x.id === id);
+  if (!w) return;
+  document.querySelectorAll('.weapon-card').forEach(c => c.classList.remove('active'));
+  document.querySelector(`.weapon-card[data-id="${id}"]`)?.classList.add('active');
+
+  let html = `<h3>${w.name}</h3><ul>`;
+  for (const [key, value] of Object.entries(w.info)) {
+    html += `<li><strong>${key}:</strong> ${value}</li>`;
+  }
+  html += '</ul>';
+  weaponInfo.innerHTML = html;
+
+  weaponPhoto.innerHTML = '';
+  if (w.photo) {
+    const img = document.createElement('img');
+    img.className = 'weapon-photo';
+    img.alt = w.name;
+    img.src = w.photo;
+    img.onerror = () => {
+      weaponPhoto.innerHTML = `<div class="photo-placeholder"><div class="ph-icon">📷</div><div>${w.name}</div><div style="color:var(--muted);font-size:.85rem">Фото недоступно</div></div>`;
+    };
+    weaponPhoto.appendChild(img);
+  } else {
+    weaponPhoto.innerHTML = `<div class="photo-placeholder"><div class="ph-icon">📷</div><div>${w.name}</div><div style="color:var(--muted);font-size:.85rem">Фото недоступно</div></div>`;
+  }
+
+  weaponDetail.classList.add('visible');
+  weaponDetail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* ====== 7. ПИЛОТЫ ====== */
+const pilotsGrid = document.getElementById('pilotsGrid');
+pilots.forEach(p => {
+  const card = document.createElement('div');
+  card.className = 'pilot-card';
+  card.dataset.search = (p.name + ' ' + p.rank + ' ' + p.badge + ' ' + p.desc).toLowerCase();
+
+  const initials = p.name.split(' ').map(s => s[0]).join('');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="260">
+    <defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a2332"/><stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient></defs>
+    <rect width="300" height="260" fill="url(#pg)"/>
+    <circle cx="150" cy="115" r="55" fill="#1f2937" stroke="#3b82f6" stroke-width="2"/>
+    <text x="150" y="130" fill="#60a5fa" font-family="Arial" font-size="34" font-weight="bold" text-anchor="middle">${initials}</text>
+    <text x="150" y="210" fill="#8b949e" font-family="Arial" font-size="12" text-anchor="middle">Фото недоступно</text>
+  </svg>`;
+
+  card.innerHTML = `
+    <img class="pilot-photo" alt="${p.name}" src="data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}">
+    <div class="pilot-body">
+      <h3>${p.name}</h3>
+      <div class="pilot-rank">${p.rank}</div>
+      <div class="pilot-desc">${p.desc}</div>
+      <span class="pilot-badge">${p.badge}</span>
+    </div>
+  `;
+  pilotsGrid.appendChild(card);
+});
+
+/* ====== 8. ВИДЕО-СЛАЙДЕР ====== */
+const videoFiltersEl = document.getElementById('videoFilters');
+const videoSliderEl  = document.getElementById('videoSlider');
+const videoTrackEl   = document.getElementById('videoTrack');
+const videoDotsEl    = document.getElementById('videoDots');
+const videoCounterEl = document.getElementById('videoCounter');
+const videoPrevEl    = document.getElementById('videoPrev');
+const videoNextEl    = document.getElementById('videoNext');
+const videoEmptyEl   = document.getElementById('videoEmpty');
+
+const sliderState = { filter:'all', perView:3, index:0, slides:[] };
+const CAT_NAMES = { review:'Обзор', doc:'Документальный', combat:'Боевое применение', tech:'Технический', history:'История' };
+
+function getPerView() {
+  const w = window.innerWidth;
+  if (w <= 768) return 1;
+  if (w <= 1100) return 2;
+  return 3;
+}
+
+function getFilteredVideos() {
+  return videos.filter(v => sliderState.filter === 'all' || v.cat === sliderState.filter);
+}
+
+function buildSlides(list) {
+  const perView = sliderState.perView;
+  const out = [];
+  for (let i = 0; i < list.length; i += perView) out.push(list.slice(i, i + perView));
+  return out;
+}
+
+function createVideoCard(v) {
+  const card = document.createElement('div');
+  card.className = 'video-card';
+  card.dataset.search = (v.title + ' ' + v.desc + ' ' + v.meta).toLowerCase();
+  const catName = CAT_NAMES[v.cat] || v.cat;
+  card.innerHTML = `
+    <div class="video-frame">
+      <iframe src="https://www.youtube-nocookie.com/embed/${v.id}"
+        title="${v.title}" loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <div class="video-body">
+      <h3>${v.title}</h3>
+      <div class="video-meta"><span class="video-tag">${catName}</span>${v.meta}</div>
+      <div class="video-desc">${v.desc}</div>
+    </div>
+  `;
+  return card;
+}
+
+function renderSlider() {
+  const filtered = getFilteredVideos();
+  sliderState.slides = buildSlides(filtered);
+
+  if (filtered.length === 0) {
+    videoSliderEl.style.display = 'none';
+    videoEmptyEl.style.display = '';
+    return;
+  }
+  videoSliderEl.style.display = '';
+  videoEmptyEl.style.display = 'none';
+
+  const maxIdx = Math.max(0, sliderState.slides.length - 1);
+  if (sliderState.index > maxIdx) sliderState.index = maxIdx;
+
+  videoTrackEl.innerHTML = '';
+  sliderState.slides.forEach(slideVideos => {
+    const slide = document.createElement('div');
+    slide.className = 'video-slide';
+    slide.style.gridTemplateColumns = `repeat(${sliderState.perView}, minmax(0, 1fr))`;
+    slideVideos.forEach(v => slide.appendChild(createVideoCard(v)));
+    videoTrackEl.appendChild(slide);
+  });
+
+  videoDotsEl.innerHTML = '';
+  if (sliderState.slides.length > 1) {
+    sliderState.slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'slider-dot' + (i === sliderState.index ? ' active' : '');
+      dot.setAttribute('aria-label', 'Перейти к слайду ' + (i + 1));
+      dot.addEventListener('click', () => goToSlide(i));
+      videoDotsEl.appendChild(dot);
+    });
+  }
+
+  updateSliderPosition();
+}
+
+function updateSliderPosition() {
+  const total = sliderState.slides.length;
+  const i = sliderState.index;
+  videoTrackEl.style.transform = `translateX(${-i * 100}%)`;
+  videoPrevEl.disabled = (i === 0);
+  videoNextEl.disabled = (i >= total - 1);
+
+  const showNav = total > 1;
+  videoPrevEl.style.display = showNav ? '' : 'none';
+  videoNextEl.style.display = showNav ? '' : 'none';
+  videoDotsEl.style.display = showNav ? '' : 'none';
+  videoCounterEl.style.display = showNav ? '' : 'none';
+
+  videoDotsEl.querySelectorAll('.slider-dot').forEach((d, idx) => {
+    d.classList.toggle('active', idx === i);
+  });
+
+  if (showNav) {
+    videoCounterEl.innerHTML = `Слайд <strong>${i + 1}</strong> из <strong>${total}</strong>`;
+  }
+}
+
+function goToSlide(i) {
+  const maxIdx = sliderState.slides.length - 1;
+  sliderState.index = Math.max(0, Math.min(i, maxIdx));
+  updateSliderPosition();
+}
+function nextSlide() { goToSlide(sliderState.index + 1); }
+function prevSlide() { goToSlide(sliderState.index - 1); }
+
+videoFiltersEl.addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  videoFiltersEl.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  sliderState.filter = btn.dataset.filter;
+  sliderState.index = 0;
+  renderSlider();
+});
+
+videoPrevEl.addEventListener('click', prevSlide);
+videoNextEl.addEventListener('click', nextSlide);
+
+document.addEventListener('keydown', e => {
+  const videoPage = document.getElementById('page-videos');
+  if (!videoPage || !videoPage.classList.contains('active')) return;
+  if (e.target.matches('input, textarea, select')) return;
+  if (e.key === 'ArrowLeft')  { e.preventDefault(); prevSlide(); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
+});
+
+(function initSwipe() {
+  let startX = 0, startY = 0, tracking = false;
+  const track = videoTrackEl;
+  track.addEventListener('touchstart', e => {
+    if (e.touches.length !== 1) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    tracking = true;
+  }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if (!tracking) return;
+    tracking = false;
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    if (dx < 0) nextSlide(); else prevSlide();
+  }, { passive: true });
+})();
+
+let sliderResizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(sliderResizeTimer);
+  sliderResizeTimer = setTimeout(() => {
+    const npv = getPerView();
+    if (npv !== sliderState.perView) {
+      sliderState.perView = npv;
+      sliderState.index = 0;
+      renderSlider();
+    }
+  }, 180);
+});
+
+sliderState.perView = getPerView();
+renderSlider();
+
+/* ====== 9. ПОИСК ====== */
+const searchInput = document.getElementById('search');
+const searchResults = document.getElementById('search-results');
+
+function buildIndex() {
+  const index = [];
+  weapons.forEach(w => index.push({
+    tag:'Вооружение', title:w.name, desc:w.short,
+    haystack:(w.name + ' ' + w.short + ' ' + w.category + ' ' + Object.values(w.info).join(' ')).toLowerCase(),
+    action:() => { showPage('home', true); document.getElementById('weapons').scrollIntoView({behavior:'smooth'}); showWeapon(w.id); }
+  }));
+  pilots.forEach(p => index.push({
+    tag:'Пилоты', title:p.name, desc:p.rank + ' — ' + p.badge,
+    haystack:(p.name + ' ' + p.rank + ' ' + p.badge + ' ' + p.desc).toLowerCase(),
+    action:() => { showPage('pilots', true); document.getElementById('known-pilots').scrollIntoView({behavior:'smooth'}); }
+  }));
+  videos.forEach(v => index.push({
+    tag:'Видео', title:v.title, desc:v.desc,
+    haystack:(v.title + ' ' + v.desc + ' ' + v.meta).toLowerCase(),
+    action:() => { showPage('videos', true); document.getElementById('videos-intro').scrollIntoView({behavior:'smooth'}); }
+  }));
+  document.querySelectorAll('[data-search]').forEach(el => {
+    const tag = el.closest('section')?.querySelector('h2')?.textContent?.trim() || 'Раздел';
+    const title = el.querySelector('h3, .year')?.textContent || el.querySelector('h2')?.textContent || 'Раздел';
+    index.push({
+      tag, title, desc: el.textContent.trim().slice(0,120) + '…',
+      haystack: (el.dataset.search + ' ' + el.textContent).toLowerCase(),
+      action: () => {
+        const page = el.closest('.page');
+        if (page && !page.classList.contains('active')) showPage(page.id.replace('page-',''), true);
+        setTimeout(() => {
+          el.scrollIntoView({behavior:'smooth',block:'center'});
+          el.classList.add('highlight');
+          setTimeout(() => el.classList.remove('highlight'), 2100);
+        }, 150);
+      }
+    });
+  });
+  document.querySelectorAll('section').forEach(sec => {
+    const h2 = sec.querySelector('h2');
+    if (!h2) return;
+    index.push({
+      tag:'Раздел', title:h2.textContent.trim(), desc:'Перейти к разделу',
+      haystack:(h2.textContent + ' ' + sec.textContent.slice(0,300)).toLowerCase(),
+      action:() => {
+        const page = sec.closest('.page');
+        if (page && !page.classList.contains('active')) showPage(page.id.replace('page-',''), true);
+        setTimeout(() => sec.scrollIntoView({behavior:'smooth'}), 150);
+      }
+    });
+  });
+  return index;
+}
+
+const SEARCH_INDEX = buildIndex();
+
+function doSearch(query) {
+  const q = query.trim().toLowerCase();
+  if (!q) { searchResults.classList.remove('visible'); searchResults.innerHTML = ''; return; }
+  const words = q.split(/\s+/).filter(Boolean);
+  const matches = SEARCH_INDEX.filter(item => words.every(w => item.haystack.includes(w))).slice(0,18);
+  searchResults.innerHTML = '';
+  if (matches.length === 0) {
+    searchResults.innerHTML = '<div class="no-results">Ничего не найдено 🤔</div>';
+    searchResults.classList.add('visible');
+    return;
+  }
+  matches.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'search-item';
+    div.innerHTML = `<div class="s-title">${item.title}<span class="s-tag">${item.tag}</span></div><div class="s-desc">${item.desc}</div>`;
+    div.addEventListener('click', () => {
+      searchResults.classList.remove('visible');
+      searchInput.value = '';
+      item.action();
+    });
+    searchResults.appendChild(div);
+  });
+  searchResults.classList.add('visible');
+}
+
+searchInput.addEventListener('input', e => {
+  const y = window.scrollY;
+  doSearch(e.target.value);
+  if (window.scrollY !== y) window.scrollTo(0, y);
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.search-wrap')) searchResults.classList.remove('visible');
+});
+
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    searchInput.focus({ preventScroll: true });
+  }
+  if (e.key === 'Escape') {
+    searchResults.classList.remove('visible');
+    searchInput.blur();
+  }
+});
+
+/* ====== 10. SPA-НАВИГАЦИЯ ====== */
+const pageNav = document.getElementById('pageNav');
+const anchorNav = document.getElementById('anchorNav');
+
+function showPage(name, scrollTop) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const page = document.getElementById('page-' + name);
+  if (page) page.classList.add('active');
+  document.querySelectorAll('#pageNav button').forEach(b => {
+    b.classList.toggle('active', b.dataset.page === name);
+  });
+  if (anchorNav) anchorNav.style.display = name === 'home' ? 'flex' : 'none';
+  if (scrollTop) window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+pageNav.addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  showPage(btn.dataset.page, true);
+});
+
+document.querySelectorAll('#anchorNav a').forEach(a => {
+  a.addEventListener('click', () => showPage('home'));
+});
+
+document.querySelectorAll('[data-goto]').forEach(el => {
+  el.addEventListener('click', e => {
+    e.preventDefault();
+    showPage(el.dataset.goto, true);
+  });
+});
+
+/* ====== 11. КНОПКА НАВЕРХ ====== */
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  toTop.classList.toggle('visible', window.scrollY > 600);
+}, { passive: true });
+toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* ====== 12. СЧЁТЧИКИ И ПРОГРЕСС-БАРЫ ====== */
+(function initCounters() {
+  const counters = document.querySelectorAll('[data-count]');
+  if (!counters.length) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      if (isNaN(target)) return;
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 60));
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = current.toLocaleString('ru-RU');
+      }, 18);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => observer.observe(c));
+})();
+
+(function initBars() {
+  const bars = document.querySelectorAll('.tb-fill');
+  if (!bars.length) return;
+  bars.forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0%';
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => { bar.style.width = width; }, 100);
+          observer.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(bar);
+  });
+})();
+
+/* ====== 13. ГАЛЕРЕЯ (ЗАГРУЗКА, РЕЙТИНГ, ЛАЙТБОКС) ====== */
+const defaultGalleryData = [
+  { id: 'img1', src: '109983.jpg', title: 'Су-34 в полёте над облаками', isCustom: false },
+  { id: 'img2', src: '209548.jpg', title: 'Групповой полёт звеном Су-34', isCustom: false },
+  { id: 'img3', src: '212007.jpg', title: 'Су-34 на боевом', isCustom: false },
+  { id: 'img4', src: '213692.jpg', title: 'Кабина экипажа', isCustom: false },
+  { id: 'img5', src: '357401.jpg', title: 'Су-34 на авиасалоне', isCustom: false },
+  { id: 'img6', src: '207373.jpg', title: 'Су-34 на фоне заката', isCustom: false }
+];
+
+let customPhotos = [];
+try {
+  customPhotos = JSON.parse(localStorage.getItem('su34_custom_photos') || '[]');
+} catch(e) {}
+
+let galleryRatings = {};
+try {
+  galleryRatings = JSON.parse(localStorage.getItem('su34_gallery') || '{}');
+} catch(e) {}
+
+const galleryContainer = document.getElementById('galleryContainer');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const uploadModal = document.getElementById('uploadModal');
+
+function saveCustomPhotos() {
+  try { localStorage.setItem('su34_custom_photos', JSON.stringify(customPhotos)); } catch(e) { alert('Ошибка сохранения. Возможно, превышен лимит памяти браузера.'); }
+}
+function saveGalleryRatings() {
+  try { localStorage.setItem('su34_gallery', JSON.stringify(galleryRatings)); } catch(e) {}
+}
+
+function renderGallery() {
+  const allPhotos = [...defaultGalleryData, ...customPhotos];
+  galleryContainer.innerHTML = '';
+
+  allPhotos.forEach(photo => {
+    if (!galleryRatings[photo.id]) {
+      galleryRatings[photo.id] = { userRating: 0, likes: 0, dislikes: 0, userVote: null };
+    }
+    const r = galleryRatings[photo.id];
+
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.dataset.id = photo.id;
+
+    item.innerHTML = `
+      <img src="${photo.src}" alt="${photo.title}" onerror="this.src='data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22220%22%3E%3Crect width=%22400%22 height=%22220%22 fill=%22%23161b22%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%2360a5fa%22 font-family=%22Arial%22 font-size=%2216%22 text-anchor=%22middle%22%3EФото недоступно%3C/text%3E%3C/svg%3E'">
+      <div class="gallery-info">
+        <div class="gallery-title-row">
+          <div class="gallery-title">${photo.title}</div>
+          ${photo.isCustom ? `<button class="delete-photo-btn" title="Удалить фото">🗑️</button>` : ''}
+        </div>
+        <div class="gallery-actions">
+          <div class="stars">
+            ${[1,2,3,4,5].map(v => `<span class="star ${v <= r.userRating ? 'active' : ''}" data-value="${v}">★</span>`).join('')}
+          </div>
+          <div class="like-dislike">
+            <button class="like-btn ${r.userVote === 'like' ? 'active' : ''}">👍 <span class="count">${r.likes}</span></button>
+            <button class="dislike-btn ${r.userVote === 'dislike' ? 'active' : ''}">👎 <span class="count">${r.dislikes}</span></button>
+          </div>
+        </div>
+      </div>
+    `;
+    galleryContainer.appendChild(item);
+  });
+}
+
+// Делегирование событий для галереи (клики по звездам, лайкам, удалению)
+galleryContainer.addEventListener('click', e => {
+  const item = e.target.closest('.gallery-item');
+  if (!item) return;
+  const id = item.dataset.id;
+  const r = galleryRatings[id];
+
+  // Открытие на весь экран
+  if (e.target.tagName === 'IMG') {
+    lightboxImg.src = e.target.src;
+    lightbox.classList.add('visible');
+    return;
+  }
+
+  // Удаление кастомного фото
+  if (e.target.closest('.delete-photo-btn')) {
+    if (confirm('Вы уверены, что хотите удалить это фото?')) {
+      customPhotos = customPhotos.filter(p => p.id !== id);
+      saveCustomPhotos();
+      delete galleryRatings[id];
+      saveGalleryRatings();
+      renderGallery();
+    }
+    return;
+  }
+
+  // Звезды
+  const star = e.target.closest('.star');
+  if (star) {
+    const val = parseInt(star.dataset.value);
+    r.userRating = val;
+    saveGalleryRatings();
+    // Обновляем визуал
+    item.querySelectorAll('.star').forEach((s, i) => {
+      s.classList.toggle('active', i < val);
+    });
+    return;
+  }
+
+  // Лайк
+  if (e.target.closest('.like-btn')) {
+    if (r.userVote === 'like') {
+      r.likes--; r.userVote = null;
+    } else {
+      r.likes++;
+      if (r.userVote === 'dislike') r.dislikes--;
+      r.userVote = 'like';
+    }
+    saveGalleryRatings();
+    item.querySelector('.like-btn').classList.toggle('active', r.userVote === 'like');
+    item.querySelector('.dislike-btn').classList.toggle('active', r.userVote === 'dislike');
+    item.querySelector('.like-btn .count').textContent = r.likes;
+    item.querySelector('.dislike-btn .count').textContent = r.dislikes;
+    return;
+  }
+
+  // Дизлайк
+  if (e.target.closest('.dislike-btn')) {
+    if (r.userVote === 'dislike') {
+      r.dislikes--; r.userVote = null;
+    } else {
+      r.dislikes++;
+      if (r.userVote === 'like') r.likes--;
+      r.userVote = 'dislike';
+    }
+    saveGalleryRatings();
+    item.querySelector('.like-btn').classList.toggle('active', r.userVote === 'like');
+    item.querySelector('.dislike-btn').classList.toggle('active', r.userVote === 'dislike');
+    item.querySelector('.like-btn .count').textContent = r.likes;
+    item.querySelector('.dislike-btn .count').textContent = r.dislikes;
+    return;
+  }
+});
+
+// Подсветка звезд при наведении
+galleryContainer.addEventListener('mouseover', e => {
+  const star = e.target.closest('.star');
+  if (!star) return;
+  const item = star.closest('.gallery-item');
+  const val = parseInt(star.dataset.value);
+  item.querySelectorAll('.star').forEach((s, i) => s.classList.toggle('hover', i < val));
+});
+galleryContainer.addEventListener('mouseout', e => {
+  if (!e.target.closest('.star')) return;
+  const item = e.target.closest('.gallery-item');
+  item.querySelectorAll('.star').forEach(s => s.classList.remove('hover'));
+});
+
+// Закрытие лайтбокса
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox || e.target === document.getElementById('lightboxClose')) {
+    lightbox.classList.remove('visible');
+  }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && lightbox.classList.contains('visible')) {
+    lightbox.classList.remove('visible');
+  }
+});
+
+// Логика загрузки фото
+document.getElementById('openUploadBtn').addEventListener('click', () => {
+  document.getElementById('photoTitle').value = '';
+  document.getElementById('photoFile').value = '';
+  uploadModal.classList.add('visible');
+});
+
+function closeUploadModal() { uploadModal.classList.remove('visible'); }
+document.getElementById('uploadClose').addEventListener('click', closeUploadModal);
+document.getElementById('uploadCancel').addEventListener('click', closeUploadModal);
+uploadModal.addEventListener('click', e => { if (e.target === uploadModal) closeUploadModal(); });
+
+document.getElementById('uploadSave').addEventListener('click', () => {
+  const titleInput = document.getElementById('photoTitle');
+  const fileInput = document.getElementById('photoFile');
+  const title = titleInput.value.trim();
+  const file = fileInput.files && fileInput.files[0];
+
+  if (!title) { alert('Пожалуйста, введите название для фото.'); return; }
+  if (!file) { alert('Пожалуйста, выберите файл изображения.'); return; }
+  if (file.size > 2 * 1024 * 1024) { alert('Файл слишком большой. Максимум 2 МБ.'); return; }
+
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const newPhoto = {
+      id: 'custom_' + Date.now(),
+      src: ev.target.result,
+      title: title,
+      isCustom: true
+    };
+    customPhotos.push(newPhoto);
+    saveCustomPhotos();
+    renderGallery();
+    closeUploadModal();
+  };
+  reader.readAsDataURL(file);
+});
+
+// Первоначальный рендер галереи
+renderGallery();
+
+/* ====== 14. SIMPLEBAR INIT ====== */
+function initSimpleBar() {
+  if (typeof SimpleBar === 'undefined') {
+    setTimeout(initSimpleBar, 100);
+    return;
+  }
+  document.querySelectorAll('[data-simplebar]').forEach(el => {
+    if (!el.SimpleBar) {
+      new SimpleBar(el, { autoHide: false, scrollbarMinSize: 30 });
+    } else {
+      el.SimpleBar.recalculate();
+    }
+  });
+}
+window.addEventListener('load', initSimpleBar);
+document.addEventListener('DOMContentLoaded', initSimpleBar);
+
+/* ====== 15. ИНИЦИАЛИЗАЦИЯ ====== */
+showPage('home');
+</script>
+
+</body>
+</html>
